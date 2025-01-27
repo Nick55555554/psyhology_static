@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
 
   },
   output: 'export',
-  basePath: '/Nick55555554',
+  basePath: '/Psyhology_static',
 };
 
 export default nextConfig;
