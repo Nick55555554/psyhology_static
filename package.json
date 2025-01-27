@@ -8,6 +8,7 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
+    "static": "next build && next export && echo '' > ./out/.nojekyll && echo 'www.mywebsite.com' > ./out",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
@@ -16,7 +17,8 @@
     "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "sass": "^1.83.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

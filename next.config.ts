@@ -5,7 +5,10 @@ const nextConfig: NextConfig = {
 
   },
   output: 'export',
-  basePath: '/Psyhology_static',
+  basePath: '/psyhology_static',
+  images:{
+    unoptimized: true,
+  }
 };
 
 export default nextConfig;

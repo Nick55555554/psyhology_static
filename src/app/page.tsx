@@ -3,9 +3,6 @@ import title_image from "../../public/title-image.jpg";
 import tg from "../../public/tg.png"
 import wp from "../../public/wp.png"
 import email from "../../public/email.png"
-
-
-
 import "./styles.scss";
 import { useRef, useState } from "react";
 import { ScrollCheck } from "./ui/scrollCheck";
