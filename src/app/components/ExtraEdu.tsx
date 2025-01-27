@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Image from 'next/image'
 import Sertifikat_NGPU_2024 from '../../../public/Sertifikat_NGPU_2024/Sertifikat_NGPU_2024_page-0001.jpg'
 import Sertifikat_NPK_EARPP_RO_Eka from '../../../public/Sertifikat_NPK_EARPP_RO-Ekaterinburg_2023/Sertifikat_NPK_EARPP_RO-Ekaterinburg_2023_page-0001.jpg'
 import Sertifikat_NPK_EARPP_RO_Nov_21 from '../../../public/Sertifikat_NPK_EARPP_RO-Novosibirsk_2021/Sertifikat_NPK_EARPP_RO-Novosibirsk_2021_page-0001.jpg'
@@ -10,6 +9,7 @@ import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../../public/Udostoverenie
 import Udostoverenie_NIPKiPRO_2024 from '../../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
 import { ScrollCheck } from '../ui/scrollCheck'
 import "../styles.scss"
+import Image from 'next/image'
 
 export const ExtraEdu =({
     className,
@@ -67,7 +67,7 @@ export const ExtraEdu =({
     ]
     return(
         <ScrollCheck className={`${ExtraEdu != null  ? "" : ""} mt-12 ${className}`}>
-            <h1 className="pt-8 pl-12">Дополнительное образование:</h1>
+            <h1 className="pt-8 pl-12 edu_head">Дополнительное образование:</h1>
             <ul className="pl-3 pb-10">
             {mainEduSet.map((item) => (
                 <li 

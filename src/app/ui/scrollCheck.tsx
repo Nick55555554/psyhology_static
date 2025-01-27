@@ -48,7 +48,7 @@ export const ScrollCheck = ({
         };
     }, []);
     return(
-        <div className={`border ${ state.isVisible ? "visible" : "" } ${className}`}
+        <div className={`border ${ state.isVisible ? "visible_box" : "" } ${className}`}
         ref={boxRef}>
             {children}
         </div>

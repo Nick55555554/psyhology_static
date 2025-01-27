@@ -1,7 +1,6 @@
 @use 'sass:math';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use "tailwindcss" as *;
+
 
 *,
 *::before,
@@ -16,9 +15,18 @@
   list-style: none;
 }
 // @font-face {
-  
+//   font-family: 'Jost';
+//   src: url('/font/Jost-VariableFont_wght.ttf') format('truetype'); 
+//   font-weight: 400;
+//   font-style: normal;
 // }
 
+// @font-face {
+//   font-family: 'Jost';
+//   src: url('/font/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+//   font-weight: 400; 
+//   font-style: italic;
+// }
 img{
   display: block;
   max-width: 100%;
@@ -38,12 +46,14 @@ html{
   scroll-behavior: smooth;
 }
 body{
-  font-family: 'Bellota Text', sans-serif;
+  font-style: normal;
   min-height: 100%;
   line-height: 1.5;
 }
 h1, h2, h3, h4, h5, h6, p, div, li, span {
-    font-family: 'Bellota Text', sans-serif; 
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @media(prefers-reduced-motion:reduce){

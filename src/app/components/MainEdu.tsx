@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import Image from 'next/image'
 import Diplom_MIP_2024 from '../../../public/Diplom_MIP_2024/Diplom_MIP_2024_page-0001.jpg'
 import Diplom_NGTU_2022_1_srt from "../../../public/Diplom_NGTU_2022_1_str/Diplom_NGTU_2022_1_str_page-0001.jpg"
 import Mezhdunarodny_Sertifikat from '../../../public/Mezhdunarodny_Sertifikat_MShGA_160ch_2023/Mezhdunarodny_Sertifikat_MShGA_160ch_2023_page-0001.jpg'
 import { ScrollCheck } from '../ui/scrollCheck'
 import "@/app/styles.scss"
-export const MainEdu =() => {
+import Image from 'next/image'
+export const MainEdu =({className}:
+    {className?: string}
+) => {
     const [mainEdu, setVisibleMainEdu] = useState<number | null>(null)
     const handleMainEdu = (id: number) => {
         setVisibleMainEdu((prev:number | null) => (prev === id ? null : id));
@@ -31,8 +33,8 @@ export const MainEdu =() => {
         
     ]
     return(
-        <ScrollCheck className={`${mainEdu != null  ? "" : ""} mt-12`}>
-            <h1 className="pt-8 pl-12">Основное образование:</h1>
+        <ScrollCheck className={`${mainEdu != null  ? "" : ""} mt-12 ${className}`}>
+            <h1 className="pt-8 pl-12 edu_head">Основное образование:</h1>
             <ul className="pl-3 pb-10">
             {mainEduSet.map((item) => (
                 <li 
