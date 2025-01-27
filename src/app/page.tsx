@@ -20,7 +20,6 @@ export default function Home() {
   const [layout, setLayout] = useState<boolean>(false)
   const educationRef = useRef<HTMLDivElement | null>(null);
   const workFormRef = useRef<HTMLDivElement | null>(null);
-  const ContactsRef = useRef<HTMLDivElement | null>(null);
   const teleRef = useRef<HTMLSpanElement | null>(null);
   const emailRef = useRef<HTMLSpanElement | null>(null);
   const tgRef = useRef<HTMLSpanElement | null>(null);

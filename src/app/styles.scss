@@ -26,6 +26,7 @@ header{
     text-wrap: nowrap;
     line-height: 50px;
     z-index: 1;
+    animation: fadeIn 2s ease-out forwards;
 }
 .zapis{
     width: 250px;
@@ -40,6 +41,7 @@ header{
     font-size: rem(40);
     line-height: 40px;
     padding-left: 80px;
+    animation: fadeIn 2s ease-out forwards;
 }
 .left, .right{
     display: grid;
@@ -49,8 +51,29 @@ header{
 .name{
     padding: 30px 0 0 0;
     font-size: clamp(1.2rem, 1vw + 2rem, 4rem);
+    position: relative;
+    display: inline-block;
+    opacity: 1;
+    animation: fadeIn 2s ease-out forwards;
 }
 
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.name::after{
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 5px;
+    background-color: #3B3EE3;
+    content: "";
+    margin-bottom: 0;
+}
 .title_image{
     width:80%;
     border-radius: 40px;
@@ -63,6 +86,7 @@ header{
     padding-top: 40px;
     width: 80%;
     height: auto;
+    animation: fadeIn 2s ease-out forwards;
 }
 .mt{
     margin-top: 60px;
@@ -229,7 +253,7 @@ header{
     cursor: pointer;
 }
 
-@media (max-width:2557px) {
+@media (max-width:2560px) {
     .nav{
         font-size: rem(40);
         line-height: 70px;
@@ -397,7 +421,7 @@ header{
         margin-left: 20px;
     }
     .edu,.work{
-        font-size: rem(36);
+        font-size: rem(30);
     }
     .border, .text{
         width: 90%;
@@ -410,7 +434,7 @@ header{
         font-size: rem(42);
     }
     .text{
-        font-size: rem(30);
+        font-size: rem(28);
     }
     .title_image{
         margin: 0;
@@ -432,9 +456,16 @@ header{
     .cont_label{
         font-size: rem(56);
     }
+
     .contacts span, .contacts .contacts-head{
         font-size: rem(36);
         padding-top: 20px;
+        display: block;
+        padding-top: 0;
+    }
+    
+    .zapis{
+        font-size: rem(32);
     }
 }
 
@@ -445,7 +476,7 @@ header{
         margin-left: 40px;
     }
     .zapis{
-        font-size: rem(24);
+        font-size: rem(30);
     }
     .border, .text, .title_image{
         width: 420px;
@@ -470,7 +501,7 @@ header{
         height: auto;
     }
     .edu,.work{
-        font-size: rem(32);
+        font-size: rem(30);
     }
     .cont_label{
         font-size: rem(48);
@@ -501,7 +532,7 @@ header{
         padding-left: 50px;
     }
     .edu,.work{
-        font-size: rem(30);
+        font-size: rem(28);
     }
     .border{
         border: 8px solid #3B3EE3;
@@ -520,6 +551,9 @@ header{
         width: 90px;
         height: auto;
     }
+    .name{
+        padding: 30px 0 10px 40px;
+    }
 
 }
 @media(max-width: 840px){
@@ -527,7 +561,7 @@ header{
         width: 340px;
     }
     .zapis{
-        width: 150px;
+        width: 180px;
     }
 
     h1{
@@ -553,10 +587,6 @@ header{
     }
     .nav{
         gap:3%;
-    }
-    .contacts span, .contacts .contacts-head{
-        display: block;
-        padding-top: 0;
     }
 
     .popUp_h{
@@ -592,7 +622,7 @@ header{
         font-size: rem(40);
     }
     .zapis{
-        width: 100%;
+        width: 160px;
         margin-right: 10%;
     }
     .edu, .work{

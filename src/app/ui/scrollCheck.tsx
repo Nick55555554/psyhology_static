@@ -36,14 +36,15 @@ export const ScrollCheck = ({
                 }
             });
         });
+        const currentBoxRef = boxRef.current
 
-        if (boxRef.current) {
-            observer.observe(boxRef.current);
+        if (currentBoxRef) {
+            observer.observe(currentBoxRef);
         }
 
         return () => {
-            if (boxRef.current) {
-                observer.unobserve(boxRef.current)
+            if (currentBoxRef) {
+                observer.unobserve(currentBoxRef)
             }
         };
     }, []);
