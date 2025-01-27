@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 
   },
   output: 'export',
+  basePath: '/Nick55555554',
 };
 
 export default nextConfig;
