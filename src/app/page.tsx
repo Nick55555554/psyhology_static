@@ -1,101 +1,155 @@
+'use client'
 import Image from "next/image";
+import title_image from "./images/title-image.jpg"
+import "./styles.scss"
+import {useRef, useState } from "react";
+import { ScrollCheck } from "./ui/scrollCheck";
+import { MainEdu } from "./components/MainEdu";
+import { ExtraEdu } from "./components/ExtraEdu";
+
+
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [popupVisible, setPopupVisible] = useState({
+    tele: false,
+    email: false,
+    tg: false,
+  });
+  const educationRef = useRef(null);
+  const workFormRef = useRef(null);
+  const ContactsRef = useRef(null);
+  const teleRef = useRef<HTMLSpanElement | null>(null);
+  const emailRef = useRef<HTMLSpanElement | null>(null);
+  const tgRef = useRef<HTMLSpanElement | null>(null);
+  const scrollToSection = (ref:any) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  const handlePopUp = (e:React.MouseEvent<HTMLSpanElement>, type: string) => {
+    const target = e.currentTarget;
+      navigator.clipboard.writeText(target.innerText)
+          .then(() => {
+            
+              setPopupVisible(prev => ({ ...prev, [type]: true }));
+  
+              setTimeout(() => {
+                  setPopupVisible(prev => ({ ...prev, [type]: false }));
+              }, 1000);
+          })
+          .catch(err => {
+              console.error("Ошибка при копировании текста: ", err);
+        })
+    }
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  
+
+
+  return (
+    <div className="">
+      <header>
+        <div className="font-medium text-left pl-24 logo">
+          Психолог-
+          <br/>
+          психоаналитик</div>
+          <div className="nav">
+            <span className="cursor-pointer"
+            onClick={() => scrollToSection(educationRef)}
+            >Образование</span>
+            <span className="cursor-pointer"
+            onClick={() => scrollToSection(workFormRef)}
+            >Формат работы</span>
+            <span className="cursor-pointer"
+            onClick={() => scrollToSection(ContactsRef)}
+            >Запись на приём</span>
+          </div>
+      </header>
+      <main >
+        <div className="left flexim">
+          <h1 className="name">Юрий Романович Грачёв</h1>
+            <Image src={title_image}
+            alt="Фото"
+            width={550}
+            objectFit="cover"
+            className="title_image"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="text">
+            Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса.
+            </div>
+            <ExtraEdu/>
+            <div className="contacts"ref={workFormRef}>
+                <p className="cont_label">Запись на приём</p>
+                <div className="contacts-head"> 
+                  Телефон:
+                  <span className="text-[#3B3EE3] ml-5 cursor-pointer"
+                onClick={(e) => handlePopUp(e, 'tele')}
+                ref={teleRef}>
+                +7 999 466-07-17
+              </span>
+              {popupVisible.tele ? (
+                <div className="copy_popup visible">Телефон скопирован</div>
+              ) :
+              <div className="copy_popup">Телефон скопирован</div>
+              }
+            </div>
+            <div className="contacts-head"> 
+              Электронная почта:
+              <span className="text-[#3B3EE3] ml-5 cursor-pointer"
+                ref={emailRef}
+                onClick={(e) => handlePopUp(e, 'email')}>
+                rp@4e8.ru
+              </span>
+              {popupVisible.email ? (
+                <div className="copy_popup visible">Эл. почта скопирована</div>
+              ) :
+              <div className="copy_popup">Эл. почта скопирована</div>
+              }
+            </div>
+            <div className="contacts-head"> 
+              Телеграм-канал:
+              <span className="text-[#3B3EE3] ml-5 cursor-pointer"
+                ref={tgRef}
+                onClick={(e) => handlePopUp(e, 'tg')}>
+                t.me/ncuxo_analiz
+              </span>
+              {popupVisible.tg ? (
+                <div className="copy_popup visible">Ссылка скопирована</div>
+              ) :
+              <div className="copy_popup">Ссылка скопирована</div>
+              }
+            </div>
+          </div>
+        </div>
+        <div className="right flexim">
+        <div className="text mt-4">
+          Практикующий психоаналитически ориентированный психотерапевт и педагог-психолог. Член Российского национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии, ЕАРПП НО ECPP (Vienna, Austria), член правления Новосибирского регионального отделения ЕАРПП.
+            </div>
+            <div ref={educationRef}></div>
+          <MainEdu/>
+
+            <div className="text">
+              Уверен, что источник изменений находится внутри человека. Работа с бессознательным – это совместный труд клиента и терапевта, результатом которого является личностный рост и принципиальное изменение качества жизни.
+            </div>
+            <div ref={ContactsRef}></div>
+            <ScrollCheck className="mt-10">
+              <h1 className="pt-5 pl-16 pb-3">Формат работы:</h1>
+              <ul className="pl-3 pb-10">
+                  <li className="work">
+                  Индивидуальный приём очно в кабинете в центре 
+                  Новосибирска
+                  </li>
+                  <li className="work">
+                  Онлайн из любой точки мира
+                  </li>
+                  <li className="work">
+                  Время сессии ~ 50 минут
+                  </li>
+                  <li className="work">
+                    Остальные условия 
+                  обсуждаются индивидуально
+                  </li>
+              </ul>
+            </ScrollCheck>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
