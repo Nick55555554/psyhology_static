@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
 
   },
   output: 'export',
-  basePath: '/psyhology_static',
+  assetPrefix: 'https://xn--80aawcameohiwt6a.xn--41a.xn--p1acf/',
   images:{
     unoptimized: true,
   }
