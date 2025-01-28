@@ -10,6 +10,8 @@ import Udostoverenie_NIPKiPRO_2024 from '../../../public/Udostoverenie_NIPKiPRO_
 import { ScrollCheck } from '../ui/scrollCheck'
 import "../styles.scss"
 import Image from 'next/image'
+import { useAtom } from 'jotai'
+import { ImgAtom } from './MainEdu'
 
 export const ExtraEdu =({
     className,
@@ -17,49 +19,53 @@ export const ExtraEdu =({
     className?: string
 }) => {
     const [extraEdu, setVisibleExtraEdu] = useState<number | null>(null)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [img, setImg] = useAtom(ImgAtom)
     const handleMainEdu = (id: number) => {
         setVisibleExtraEdu((prev:number | null) => (prev === id ? null : id));
+
     };
+
     
-    const mainEduSet = [
+    const ExtraEduSet = [
         {
-            id: 1,
+            id: 3,
             text: "Сертификат НГПУ 2024",
             image: Sertifikat_NGPU_2024,
         },
         {
-            id: 2,
+            id: 4,
             text: "Удостоверение НИПКиПРО 2024",
             image: Udostoverenie_NIPKiPRO_2024,
         },
         {
-            id: 3,
+            id: 5,
             text: "Удостоверение ГЦОЗ Магистр 2023",
             image: Udostoverenie_GTsOZ_Magistr_2023,
         },
         {
-            id: 4,
+            id: 6,
             text: "Сертификат НПК ЕАРПП РО-Санкт-Петербург 2023",
             image: Sertifikat_NPK_EARPP_RO_23,
         },
         {
-            id: 5,
+            id: 7,
             text: "Сертификат НПК ЕАРПП РО-Екатеринбург 2023",
             image: Sertifikat_NPK_EARPP_RO_Eka,
         },
         {
-            id: 6,
+            id: 8,
             text: "Сертификат НПК ЕАРПП РО-Новосибирск 2022",
             image: Sertifikat_NPK_EARPP_RO_22,
         },
         
         {
-            id: 7,
+            id: 9,
             text: "Сертификат НПК ЕАРПП РО-Новосибирск 2021",
             image: Sertifikat_NPK_EARPP_RO_Nov_21,
         },
         {
-            id: 8,
+            id: 10,
             text: "Удостоверение ИСПиП 2021",
             image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
         },
@@ -69,20 +75,22 @@ export const ExtraEdu =({
         <ScrollCheck className={`${ExtraEdu != null  ? "" : ""} mt-12 ${className}`}>
             <h1 className="pt-8 pl-12 edu_head">Дополнительное образование:</h1>
             <ul className="pl-3 pb-10">
-            {mainEduSet.map((item) => (
+            {ExtraEduSet.map((item) => (
                 <li 
                     key={item.id} 
-                    className={`edu ${extraEdu === item.id-1 ? 'edu_active' : ''}`} 
+                    className={`edu ${extraEdu === item.id ? 'edu_active' : ''}`} 
                     onClick={() => handleMainEdu(item.id)}
                 >
                     {item.text}
                     {item.image && (
-                        <Image 
+                        <Image
+                            onClick={() => setImg(item.id)}
                             src={item.image} 
                             width={450} 
                             height={300} 
                             alt={item.text} 
-                            className={`edu_Image  ${extraEdu  === item.id ? 'Image_visible' : ''}`} 
+                            className={`edu_Image  ${extraEdu  === item.id ? 'Image_visible' : 'Image_hidden'}
+                            `} 
                         />
                     )}
                 </li>

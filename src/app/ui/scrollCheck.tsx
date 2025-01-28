@@ -32,19 +32,23 @@ export const ScrollCheck = ({
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     dispatch({ type: 'SET_VISIBLE' });
-                    observer.unobserve(boxRef.current!); 
+                    if (boxRef.current) {
+                        observer.unobserve(boxRef.current); 
+                    }
                 }
             });
         });
-        const currentBoxRef = boxRef.current
 
-        if (currentBoxRef) {
-            observer.observe(currentBoxRef);
+        const current = boxRef.current
+
+        if(current) {
+            observer.observe(current)
         }
 
+
         return () => {
-            if (currentBoxRef) {
-                observer.unobserve(currentBoxRef)
+            if (current) {
+                observer.unobserve(current)
             }
         };
     }, []);

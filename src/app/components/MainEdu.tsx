@@ -5,51 +5,61 @@ import Mezhdunarodny_Sertifikat from '../../../public/Mezhdunarodny_Sertifikat_M
 import { ScrollCheck } from '../ui/scrollCheck'
 import "@/app/styles.scss"
 import Image from 'next/image'
+import { atom, useAtom } from 'jotai'
+
+export const ImgAtom = atom<number>()
+
 export const MainEdu =({className}:
     {className?: string}
 ) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [img,setImage] = useAtom(ImgAtom)
     const [mainEdu, setVisibleMainEdu] = useState<number | null>(null)
     const handleMainEdu = (id: number) => {
         setVisibleMainEdu((prev:number | null) => (prev === id ? null : id));
-    
+
     };
     
     const mainEduSet = [
         {
-            id: 1,
+            id: 0,
             text: "Диплом о базовом психологическом образовании",
             image: Diplom_NGTU_2022_1_srt,
         },
         {
-            id: 2,
+            id: 1,
             text: "Диплом о психоаналитической переподготовке",
             image: Diplom_MIP_2024,
         },
         {
-            id: 3,
+            id: 2,
             text: "Международный сертификат МШГА, COIRAG, EGATIN, EAP",
             image: Mezhdunarodny_Sertifikat,
         },
         
     ]
     return(
-        <ScrollCheck className={`${mainEdu != null  ? "" : ""} mt-12 ${className}`}>
+        <ScrollCheck className={` mt-12 ${className}`}>
             <h1 className="pt-8 pl-12 edu_head">Основное образование:</h1>
             <ul className="pl-3 pb-10">
             {mainEduSet.map((item) => (
                 <li 
                     key={item.id} 
-                    className={`edu ${mainEdu === item.id-1 ? 'edu_active' : ''}`} 
-                    onClick={() => handleMainEdu(item.id)}
+                    className={`edu ${mainEdu === item.id ? 'edu_active' : ''}`} 
                 >
-                    {item.text}
+                    <div onClick={() => handleMainEdu(item.id)}>
+                        {item.text}
+                    </div>
                     {item.image && (
                         <Image 
+                            onClick={() => setImage(item.id)}
                             src={item.image} 
                             width={450} 
                             height={300} 
                             alt={item.text} 
-                            className={`edu_Image  ${mainEdu  === item.id ? 'Image_visible' : ''}`} 
+                            className={`edu_Image  ${mainEdu  === item.id ? 'Image_visible' : 'Image_hidden'} 
+                        
+                            `} 
                         />
                     )}
                 </li>

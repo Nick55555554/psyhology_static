@@ -1,12 +1,12 @@
 @use "globals" as *;
 
+
 main{
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
-    width: 100%;
-    height: auto;
     justify-items: center;
-    padding-bottom: 70px;
+    grid-template-rows: 3100px;
+    padding-bottom: 100px;
 }
 header{
     width: 100%;
@@ -24,24 +24,28 @@ header{
     gap:5%;
     font-size: rem(28);
     text-wrap: nowrap;
-    line-height: 50px;
+    line-height: 70px;
     z-index: 1;
     animation: fadeIn 2s ease-out forwards;
 }
 .zapis{
-    width: 250px;
     background-color: #3B3EE3;
     border-radius: 25px;
-    height: 50px;
+    padding: 0 auto;
     color: white;
-    font-weight: 600;
     text-align: center;
+    line-height: 70px;
+    height: 70px;
+}
+.zapis span{
+    font-weight: 900;
 }
 .logo{
     font-size: rem(40);
     line-height: 40px;
     padding-left: 80px;
     animation: fadeIn 2s ease-out forwards;
+    font-weight: 600;
 }
 .left, .right{
     display: grid;
@@ -94,15 +98,15 @@ header{
 
 .border{
     border: 10px solid #3B3EE3;
-    border-radius: 10%;
+    border-radius: 70px;
     width: 80%;
-    height: auto;
-    overflow: auto;
+    height: auto;;
     margin: 30px;
     opacity: 0;
     transition: opacity 1s ease 0.5s;
     box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.4);
 }
+
 .visible_box{
     opacity: 1;
 }
@@ -118,21 +122,21 @@ header{
     top: auto;
     height: auto;
 }
-.edu_head{
+.edu_head, .form_work{
     padding-right: 30px;
+    text-decoration: underline;
 }
 
 .edu_Image { 
-    position: relative;
-    opacity: 0;
-    max-height: 0px;
     transition: all 0.5s ease; 
     z-index: -1;
     height: auto;
 }
+.Image_hidden{
+    max-height: 0px
+}
 
 .Image_visible {
-    position: relative;
     height: auto;
     max-height: 1000px;
     opacity: 1;
@@ -166,6 +170,7 @@ header{
 }
 .contacts p{
     font-size: rem(56); 
+    font-weight: 600;
 }
 .cont_label{
     font-weight: 400;
@@ -191,7 +196,7 @@ header{
     line-height: 30px;
     font-size: rem(22);
     background-color: rgb(128, 128, 128);
-    border-radius: 20%;
+    border-radius: 20px;
     color:white;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -213,6 +218,17 @@ header{
     left: 0;
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.525);
+}
+.popUpImage{
+    position: fixed;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: auto;
+    height: 90%;
+    border-radius: 10%;
+    box-shadow: 5px 4px 3px rgba(0,0,0,0.3);
 }
 .popUp{
     position: fixed;
@@ -256,7 +272,6 @@ header{
 @media (max-width:2560px) {
     .nav{
         font-size: rem(40);
-        line-height: 70px;
     }
     .text{
         font-size: rem(44);
@@ -265,7 +280,7 @@ header{
         font-size: rem(64);
     }
     .name{
-        font-size: rem(72);
+        font-size: rem(78);
     }
     .edu,.work{
         font-size: rem(48);
@@ -293,21 +308,24 @@ header{
     .wa,.tm,.em{
         width: 450px;
     }
+    main{
+        grid-template-rows: 3000px ;
+    }
 }
 
 
 @media (max-width:2300px) {
     .text{
-        font-size: rem(44);
+        font-size: rem(40);
     }
     h1{
-        font-size: rem(60);
+        font-size: rem(56);
     }
     .name{
-        font-size: rem(64);
+        font-size: rem(70);
     }
     .edu,.work{
-        font-size: rem(48);
+        font-size: rem(40);
     }
 
     header{
@@ -315,7 +333,6 @@ header{
     }
     .zapis{
         width: 350px;
-        height: 70px;
     }
     .nav{
         padding-right: 30px;
@@ -335,6 +352,9 @@ header{
     .wa,.tm,.em{
         width: 350px;
     }
+    main{
+        grid-template-rows: 2500px ;
+    }
 }
 
 @media (max-width:1920px) {
@@ -346,7 +366,7 @@ header{
         padding-right: 30px;
     }
     .zapis{
-        width: 250px;
+        width: 300px;
     }
     .logo{
         font-size: rem(40);
@@ -359,7 +379,8 @@ header{
         
     }
     .name{
-        font-size: clamp(1.2rem, 1vw + 2rem, 4rem);
+        font-size: rem(56);
+        padding: 20px 0 30px 50px;
     }
     
     .title_image{
@@ -367,8 +388,11 @@ header{
         ;
     }
     .text{
-        font-size: rem(36);
+        font-size: rem(32);
         width: 80%;
+    }
+    .edu,.work{
+        font-size: rem(32);
     }
     
     .border{
@@ -384,6 +408,9 @@ header{
         width: 70%;
         height: 60%;
     }
+    main{
+        grid-template-rows: 2100px ;
+    }
     
 }
 
@@ -397,10 +424,10 @@ header{
         width: 60%;
     }
     .nav{
-        width: 60%;
+        font-size: rem(36);
     }
-    .edu,.work{
-        font-size: rem(42);
+    .logo{
+        padding-left: 50px;
     }
     h1{
         font-size: rem(48);
@@ -412,6 +439,10 @@ header{
         font-size: rem(36);
         padding-top: 20px;
     }
+    main{
+        grid-template-rows: 2300px ;
+    }
+    
 }
 
 
@@ -419,9 +450,6 @@ header{
     .nav{
         font-size:rem(28);
         margin-left: 20px;
-    }
-    .edu,.work{
-        font-size: rem(30);
     }
     .border, .text{
         width: 90%;
@@ -431,13 +459,23 @@ header{
         font-size: rem(42);
     }
     .edu_head{
-        font-size: rem(42);
+        font-size: rem(36);
     }
     .text{
-        font-size: rem(28);
+        font-size: rem(26);
+    }
+    .edu,.work{
+        font-size: rem(26);
+    }
+    .name{
+        font-size: rem(48);
+        padding: 20px 0 30px 50px;
     }
     .title_image{
         margin: 0;
+    }
+    .zapis{
+        width: 250px;
     }
     .logo{
         padding-left: 20px;
@@ -451,7 +489,7 @@ header{
     }
     .popUp{
         width: 80%;
-        height: 50%;
+        height: 70%;
     }
     .cont_label{
         font-size: rem(56);
@@ -467,6 +505,10 @@ header{
     .zapis{
         font-size: rem(32);
     }
+    main{
+        grid-template-rows: 2000px ;
+    }
+
 }
 
 @media(max-width: 1028px){
@@ -490,6 +532,9 @@ header{
     .text{
         font-size: rem(24);
     }
+    .edu,.work{
+        font-size: rem(24);
+    }
     h1{
         padding-left: 30px;
     }
@@ -500,14 +545,19 @@ header{
         width: 200px;
         height: auto;
     }
-    .edu,.work{
-        font-size: rem(30);
-    }
+
     .cont_label{
         font-size: rem(48);
     }
     .contacts span, .contacts .contacts-head{
         font-size: rem(28);
+    }
+    .name{
+        padding: 30px 0 30px 40px;
+        font-size: rem(44);
+    }
+    main{
+        grid-template-rows: 2000px ;
     }
 }
 
@@ -519,10 +569,12 @@ header{
         border-bottom: 10px solid #3B3EE3;
     }
     .zapis{
-        width: 170px;
+        width: 190px;
+        font-size: rem(28);
     }
     .nav{
         gap:5%;
+        padding-right: 10px;
     }
     h1{
         font-size: rem(36);
@@ -552,7 +604,10 @@ header{
         height: auto;
     }
     .name{
-        padding: 30px 0 10px 40px;
+        padding: 30px 0 10px 30px;
+    }
+    main{
+        grid-template-rows: 2400px ;
     }
 
 }
@@ -603,8 +658,19 @@ header{
         width:40%;
         height: 70%;
     }
+    .name{
+        font-size: rem(40);
+    }
+    main{
+        grid-template-rows: 2000px ;
+    }
+
 }
 @media(max-width: 768px){
+    .popUpImage{
+        width: 70%;
+        height: auto;
+    }
     .to767{
         display: none;
     }
@@ -680,7 +746,7 @@ header{
     }
     .name{
         font-size: rem(36);
-        padding: 10px 0 10px 30px;
+        padding: 10px 30px 10px 30px;
     }
     .nav{
         justify-content: center;
@@ -701,11 +767,7 @@ header{
         height: 60px;
         line-height: 60px;
     }
-    .zapis{
-        width:40px;
-        height: 40px;
-        border-radius: 50%;
-    }
+
     .popUp{
         width: 60%;
         height: 70%;
@@ -725,6 +787,18 @@ header{
     }
     header{
         height: 120px;
+    }
+    .zapis{
+        width:60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: white;
+        margin-right: 30px;
+    }
+    .tg_zap{
+        width: 100%;
+        height: 100%;
+        color: #3B3EE3;
     }
 }
 @media(max-width: 414px){
@@ -752,8 +826,8 @@ header{
         width: 90%;
     }   
     .zapis{
-        width:40px;
-        height: 40px;
+        width:50px;
+        height: 50px;
     }
     .edu,.work{
         font-size: rem(22);
@@ -789,8 +863,9 @@ header{
         font-size: rem(20);
     }
     .zapis{
-        width: 35px;
-        height: 35px;
+        width:50px;
+        height: 50px;
+        margin-right: 10px;
     }
     .name{
 
@@ -800,8 +875,5 @@ header{
         padding: 20px 15px 0 30px;
         font-size: rem(28);
     }
-    .zapis{
-        width: 25px;
-        height: 25px;
-    }
+
 }
