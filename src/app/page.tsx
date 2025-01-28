@@ -118,7 +118,7 @@ export default function Home() {
     },    
       ]
       useEffect(() => {
-        if(img && img  < 10000){
+        if(img == 0 || img && img  < 10000){
           setLayout(true)
         }
       },[img])
@@ -160,7 +160,7 @@ export default function Home() {
         }}>
         </div>
       }
-      {img !== undefined && img >= 0 && img < allEduSet.length  &&(
+      {img !== undefined &&  img < allEduSet.length  &&(
         <>
           <Image
           src={allEduSet[img].image}
