@@ -118,7 +118,7 @@ export default function Home() {
     },    
       ]
       useEffect(() => {
-        if(img && img > 0){
+        if(img && img  < 10000){
           setLayout(true)
         }
       },[img])
@@ -156,7 +156,7 @@ export default function Home() {
         onClick={() => {
           setLayout(false)
           if (popUp) setPopUp(false)
-          else setImage(0)
+          else setImage(10000)
         }}>
         </div>
       }
