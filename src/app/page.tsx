@@ -160,7 +160,7 @@ export default function Home() {
         }}>
         </div>
       }
-      {img !== undefined && img > 0 && img < allEduSet.length  &&(
+      {img !== undefined && img >= 0 && img < allEduSet.length  &&(
         <>
           <Image
           src={allEduSet[img].image}
