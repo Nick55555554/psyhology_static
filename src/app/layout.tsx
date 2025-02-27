@@ -9,7 +9,7 @@ const wix = Wix_Madefor_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Психоанализ",
+  title: "Юрий Грачёв",
 };
 
 export default function RootLayout({
