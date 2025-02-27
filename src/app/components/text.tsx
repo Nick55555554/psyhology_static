@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import Typed from 'typed.js';
-import { FaPencilAlt } from "react-icons/fa";
 import { motion } from "motion/react";
 
 export default function Text({text, className, place}:{text: string, className?: string, place: number}){
@@ -66,7 +65,6 @@ export default function Text({text, className, place}:{text: string, className?:
                 }
             }}
             >
-            <FaPencilAlt className="pencil" />
             </motion.div>
         </div>
     )

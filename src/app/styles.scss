@@ -24,11 +24,12 @@ main{
     grid-auto-rows: min-content;
     justify-items: center;
     align-items: start;
-    width: 100%;
+    width: 90%;
     height: auto;
+    margin: 0 auto;
 }
 .secondGrid{
-    padding: 0 5%;
+    padding: 0 3%;
     padding-top: 3ч0px;
 }
 .span2{
@@ -78,26 +79,41 @@ header{
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     padding: 0 auto;
     gap:5px;
-    text-align: center;
-    margin-right: 50px;
+    text-align: left;
+    margin: 0 50px;
 }
 .swiper {
     width: 90%;
-    height: 260px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+    height: 300px;
+    margin-top: 10px;
     background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(209, 209, 209, 0.5) 20%, rgba(196, 196, 196,0.6) 50%, rgba(203, 203, 203, 0.5) 80%, rgba(255, 255, 255, 1) 100%);
     border-radius: 50px;
 }
 .swiper-slide{
     display: flex;
+    padding-top: 40px;
     justify-self: center;
     align-items: center;
+}
+.swiper-pagination-bullet {
+    background: #3B3EE3  !important;
+}
+
+.swiper-pagination-bullet-active {
+    background:#3B3EE3 !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+    color: #3B3EE3; 
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: #3B3EE3; 
 }
 .slImg{
     height: 220px;
@@ -136,20 +152,13 @@ header{
     opacity: 1;
     padding-left: 20px;
 }
-.name::after{
-    position: relative;
-    display: block;
-    width: 40px;
-    height: 5px;
-    background-color: #3B3EE3;
-    content: "";
-    margin-right: 50px;
-}
+
 .title_image{
     width:80%;
     border-radius: 40px;
     margin: 30px 0 0 0;
     box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.3);
+    border: 3px solid #3B3EE3;
 }
 .pencil{
     position: relative;
@@ -174,7 +183,7 @@ header{
     margin-top: 10px;
 }
 .w100{
-    margin: 0 10%;
+    margin: 10% 10% 0 10%;
     text-align: center;
     text-justify: inter-word;
     padding-top: 40px;
@@ -248,6 +257,13 @@ footer{
     padding-right: 30px;
     text-shadow: 3px 2px 2px rgba(0,0,0,0.2);
 }
+.dopEdu{
+    text-shadow: 3px 2px 2px rgba(0,0,0,0.2);    font-size: clamp(rem(24), 1rem + 3vw, rem(60));    text-align: center;
+    width: 100%;
+    height: 100px;
+    margin-top: 50px;
+    color:#3B3EE3
+}
 .form_work{
     background: linear-gradient(rgba(215, 215, 215, 0.9) 50%, rgba(196, 196, 196, 0.8) 80%);
     width: 100%;
@@ -257,8 +273,6 @@ footer{
     text-align: center;
     margin: 40px 0;
     color:#3B3EE3;
-    box-shadow: 7px 9px 6px rgba(0, 0, 0, 0.2);
-    text-shadow: 3px 5px 3px rgba(0, 0, 0, 0.2);
 }
 .form{
     display: flex;
@@ -339,6 +353,11 @@ footer{
 }
 .under768, .under568{
     display: none;
+}
+.footerImage{
+    display: inline-block;
+    width: 40px;
+    height: auto;
 }
 .layout{
     width: 100%;
@@ -439,7 +458,7 @@ footer{
 
 @media (max-width:2300px) {
     .text, .ListItemText{
-        font-size: rem(40);
+        font-size: rem(32);
     }
     h1{
         font-size: rem(56);
@@ -503,7 +522,7 @@ footer{
     }
     
     .text{
-        font-size: rem(28);
+        font-size: rem(26);
         width: 80%;
     }
     .edu,.work{
@@ -555,7 +574,7 @@ footer{
         font-size: rem(32);
     }
     .text{
-        font-size: rem(22);
+        font-size: rem(20);
     }
     
 }
@@ -576,7 +595,7 @@ footer{
         font-size: rem(32);
     }
     .text, .ListItemText{
-        font-size: rem(24);
+        font-size: rem(18);
     }
     .edu,.work{
         font-size: rem(20);
@@ -639,7 +658,7 @@ footer{
         padding: 0 auto;
     }
     .edu,.work, .text{
-        font-size: rem(22);
+        font-size: rem(16);
     }
     h1{
         padding-left: 30px;
@@ -731,9 +750,7 @@ footer{
         font-size: rem(28);
     }
     .text, .ListItemText{
-        font-size: rem(18);
-        padding-left: 2px;
-        padding-right: 2px;
+        font-size: rem(14);
     }
     .edu, .work{
         font-size: rem(20);

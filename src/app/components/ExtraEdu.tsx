@@ -8,10 +8,11 @@ import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../../public/Udostoverenie
 import Udostoverenie_NIPKiPRO_2024 from '../../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
 import "../styles.scss"
 import Image from 'next/image';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination'; 
+import "swiper/css/navigation";
 import { useAtom } from 'jotai'
 import { ImgAtom } from './MainEdu'
 
@@ -71,13 +72,14 @@ export const ExtraEdu =() => {
         centeredSlides={true} 
         
         autoplay={{
-            delay: 1500,
+            delay: 3000,
             disableOnInteraction: false,
         }}
         pagination={{
             clickable: true,
         }}
-        modules={[Pagination, Autoplay]}>
+        navigation={true}
+        modules={[Pagination, Autoplay, Navigation]}>
         {ExtraEduSet.map((one) => (
                 <SwiperSlide key={one.id} style={{ width: 'auto', maxHeight:"210px" }}> 
                 <Image

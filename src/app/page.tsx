@@ -10,6 +10,9 @@ import Sertifikat_NPK_EARPP_RO_23 from '../../public/Sertifikat_NPK_EARPP_RO-San
 import Udostoverenie_GTsOZ_Magistr_2023 from '../../public/Udostoverenie_GTsOZ_Magistr_2023/Udostoverenie_GTsOZ_Magistr_2023_page-0001.jpg'
 import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../public/Udostoverenie_ISPiP_Yan_Fyodorov_2021/Udostoverenie_ISPiP_Yan_Fyodorov_2021_page-0001.jpg'
 import Udostoverenie_NIPKiPRO_2024 from '../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
+import tg from "../../public/tg.png"
+import ws from "../../public/wp.png"
+import em from "../../public/email.png"
 import { motion } from "motion/react"
 import online from "../../public/fornat/online.webp"
 import offline from "../../public/fornat/offline.png"
@@ -36,7 +39,7 @@ export default function Home() {
   // const educationRef = useRef<HTMLDivElement>(null);
   // const workFormRef = useRef<HTMLDivElement>(null);
   const teleRef = useRef<HTMLSpanElement>(null);
-  // const emailRef = useRef<HTMLSpanElement>(null);
+  const emailRef = useRef<HTMLSpanElement>(null);
   const tgRef = useRef<HTMLSpanElement>(null);
   const [img, setImage] = useAtom(ImgAtom);
   const [isVisible, setIsVisible] = useState(false);
@@ -276,7 +279,7 @@ export default function Home() {
                   text='Я психоаналитически ориентированный психотерапевт. Являюсь членом национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии в России, ЕАРПП НО ECPP (Vienna, Austria) и членом правления регионального Новосибирского отделения ЕАРПП. Веду частную практику.'
               />
             </div>
-            <Text className='mt' place={3} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса.' />
+            <Text className='mt' place={3} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры' />
           <MainEdu/>
 
             {/* <div className="contacts to767">
@@ -321,6 +324,7 @@ export default function Home() {
             </div>
           </div> */}
         </div>
+        <h1 className="dopEdu">Дополнительное образование</h1>
         <ExtraEdu/>
         <div className="secondGrid ">
             <div className='text'>
@@ -338,17 +342,15 @@ export default function Home() {
                   padding: "10px"
                 }}
                 key={problem.id}
-                initial={{ x: -5, opacity: 0, scale: 0.8}}
+                initial={{opacity: 0}}
                 animate={isVisible ? {
-                  x: 0,
                   opacity: 1,
                   scale: 1,
                   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                 } : {}}
                 transition={{
-                  default: { type: "spring",  damping: 10, stifness: 200},
+                  default: { type: "spring"},
                   opacity: { ease: "linear", delay: isVisible ? 0.8 + index * 0.3 : 0 },
-                  scale: { delay: isVisible ? 1 + index * 0.3 : 0 },
                   backgroundPosition: { duration: 5, ease: 'linear', repeat: Infinity, delay: index + 1 },
                 }}
               >
@@ -380,8 +382,9 @@ export default function Home() {
                   scale: 1,
                 } : {}}
                 transition={{
-                  default: { type: "spring",        stiffness: 200,
-                  damping: 10, delay: isVisible2 ? one.id * 0.8 : 0 },
+                  default: { type: "spring",
+                  stiffness: 500,
+                  damping: 50, delay: isVisible2 ? one.id * 0.8 : 0 },
                 }}
                 >
                   <Image alt={one.text}
@@ -401,13 +404,31 @@ export default function Home() {
         </div>
       </main>
       <footer>
-              <span className="pr-[100px] "
-                ref={tgRef}
-                >
-                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer">
+            <div className='zapis'>
+                <div>
+                  <Image
+                  src={tg}
+                  alt='ТГ'
+                  className='footerImage'
+                  />
+                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer" className='pl-3'>
                     Мой телеграм-канал
                   </a>
-              </span>
+                </div>
+                <div>
+                <Image
+                  src={tg}
+                  alt='ТГ'
+                  className='footerImage'
+                  />
+                  <a href="https://t.me/rpa4e8"
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className='pl-3'>
+                    Написать в телеграм
+                  </a>
+                </div>
+              </div>
               
               <div className="zapis">
               {popupVisible.tele ? (
@@ -415,16 +436,35 @@ export default function Home() {
               ) :
               <div className="copy_popup">Телефон скопирован</div>
               }
-                  <a href="https://t.me/rpa4e8"
-                    target="_blank" 
-                    rel="noopener noreferrer">
-                  Телеграм-аккаунт
-                  </a>
-                  <span className="text-[#3B3EE3] ml cursor-pointer"
+              <div>
+              <Image
+                  src={em}
+                  alt='ТГ'
+                  className='footerImage'
+                  />
+              <span className="cursor-pointer pl-3"
+                ref={emailRef}
+                onClick={(e) => handlePopUp(e, 'email')}>
+                rp@4e8.ru
+              </span>
+              </div>
+              {popupVisible.email ? (
+                <div className="copy_popup visible">Эл. почта скопирована</div>
+              ) :
+              <div className="copy_popup">Эл. почта скопирована</div>
+              } 
+              <div>
+              <Image
+                  src={ws}
+                  alt='WP'
+                  className='footerImage'
+                  />
+                <span className="cursor-pointer pl-3"
                 onClick={(e) => handlePopUp(e, 'tele')}
                 ref={teleRef}>
                 +7 999 466-07-17
               </span>
+              </div>
             </div>
       </footer>
     </div>
