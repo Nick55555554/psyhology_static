@@ -40,7 +40,7 @@ export default function Home() {
   // const workFormRef = useRef<HTMLDivElement>(null);
   const teleRef = useRef<HTMLSpanElement>(null);
   const emailRef = useRef<HTMLSpanElement>(null);
-  const tgRef = useRef<HTMLSpanElement>(null);
+  // const tgRef = useRef<HTMLSpanElement>(null);
   const [img, setImage] = useAtom(ImgAtom);
   const [isVisible, setIsVisible] = useState(false);
   const [isVisible2, setIsVisible2] = useState(false);

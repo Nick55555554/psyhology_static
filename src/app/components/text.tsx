@@ -45,8 +45,8 @@ export default function Text({text, className, place}:{text: string, className?:
         }
 
         return () => {
-            if (el.current) {
-                observer.unobserve(el.current);
+            if (currentEl) {
+                observer.unobserve(currentEl);
             }
         };
     }, []);
