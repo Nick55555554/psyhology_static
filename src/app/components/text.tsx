@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Typed, { TypedOptions } from 'typed.js';
+import Typed from 'typed.js';
 import { FaPencilAlt } from "react-icons/fa";
 import { motion } from "motion/react";
 
@@ -18,6 +18,7 @@ export default function Text({text, className, place}:{text: string, className?:
         if (isVisible && el.current) {
             typed = new Typed(el.current, options);
         }
+        
 
         return () => {
             if (typed) {
@@ -39,8 +40,9 @@ export default function Text({text, className, place}:{text: string, className?:
             { threshold: 1 } 
         );
 
-        if (el.current) {
-            observer.observe(el.current);
+        const currentEl = el.current;
+        if (currentEl) {
+            observer.observe(currentEl);
         }
 
         return () => {

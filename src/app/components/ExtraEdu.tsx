@@ -59,6 +59,7 @@ const ExtraEduSet = [
     },
 ]
 export const ExtraEdu =() => {
+     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [img,setImage] = useAtom(ImgAtom)
 
 

@@ -10,7 +10,7 @@ import Sertifikat_NPK_EARPP_RO_23 from '../../public/Sertifikat_NPK_EARPP_RO-San
 import Udostoverenie_GTsOZ_Magistr_2023 from '../../public/Udostoverenie_GTsOZ_Magistr_2023/Udostoverenie_GTsOZ_Magistr_2023_page-0001.jpg'
 import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../public/Udostoverenie_ISPiP_Yan_Fyodorov_2021/Udostoverenie_ISPiP_Yan_Fyodorov_2021_page-0001.jpg'
 import Udostoverenie_NIPKiPRO_2024 from '../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
-import { animate, motion } from "motion/react"
+import { motion } from "motion/react"
 import online from "../../public/fornat/online.webp"
 import offline from "../../public/fornat/offline.png"
 import clocks from "../../public/fornat/clocks.webp"
@@ -33,10 +33,10 @@ export default function Home() {
   });
   const [layout, setLayout] = useState<boolean>(false)
   const [popUp, setPopUp] = useState<boolean>(false)
-  const educationRef = useRef<HTMLDivElement>(null);
-  const workFormRef = useRef<HTMLDivElement>(null);
+  // const educationRef = useRef<HTMLDivElement>(null);
+  // const workFormRef = useRef<HTMLDivElement>(null);
   const teleRef = useRef<HTMLSpanElement>(null);
-  const emailRef = useRef<HTMLSpanElement>(null);
+  // const emailRef = useRef<HTMLSpanElement>(null);
   const tgRef = useRef<HTMLSpanElement>(null);
   const [img, setImage] = useAtom(ImgAtom);
   const [isVisible, setIsVisible] = useState(false);
