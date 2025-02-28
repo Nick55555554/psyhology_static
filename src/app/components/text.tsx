@@ -1,37 +1,14 @@
-import { useEffect, useRef, useState } from "react";
-import Typed from 'typed.js';
+import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 
 export default function Text({text, className, place}:{text: string, className?: string, place: number}){
     const el = useRef<HTMLDivElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
-    useEffect(() => {
-        const options = {
-            strings: [text],
-            typeSpeed: 10,
-            loop: false,
-            cursorChar: " ",
-        }
-        let typed: Typed | null = null;
-
-        if (isVisible && el.current) {
-            typed = new Typed(el.current, options);
-        }
-        
-
-        return () => {
-            if (typed) {
-                typed.destroy();
-            }
-        };
-    }, [text, isVisible]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setTimeout(() =>{
-                        setIsVisible(true);
                     },1000 * place)
                     observer.disconnect(); 
                 }
@@ -49,7 +26,7 @@ export default function Text({text, className, place}:{text: string, className?:
                 observer.unobserve(currentEl);
             }
         };
-    }, []);
+    }, [place]);
 
     
     return(
@@ -61,10 +38,11 @@ export default function Text({text, className, place}:{text: string, className?:
                 opacity: 1,
                 transition: {
                     default: { type:"spring"},
-                    opacity: { ease: "linear", duration: 2, repeat: Infinity, delay: 5 + place }
+                    opacity: { ease: "linear", duration: 2, delay: 1 }
                 }
             }}
             >
+                {text}
             </motion.div>
         </div>
     )

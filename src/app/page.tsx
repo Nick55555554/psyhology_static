@@ -251,13 +251,15 @@ export default function Home() {
           className="title_image"
           />
           <div className='righttop'>
-              <h1 className='name'>Меня зовут Юрий Грачёв.</h1>
+              <h1 className='name'>Меня зовут Юрий Грачёв</h1>
               <Text
                   place={0}
-                  text='Я психоаналитически ориентированный психотерапевт. Являюсь членом национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии в России, ЕАРПП НО ECPP (Vienna, Austria) и членом правления регионального Новосибирского отделения ЕАРПП. Веду частную практику.'
+                  text='Я психоаналитически ориентированный психотерапевт. Являюсь членом национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии в России, ЕАРПП НО ECPP (Vienna, Austria) и членом правления регионального Новосибирского отделения ЕАРПП.'
               />
             </div>
-            <Text className='mt' place={2} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры' />
+            <Text 
+            
+            className='self-center pl0' place={2} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры.' />
           <MainEdu/>
 
             {/* <div className="contacts to767">
@@ -302,7 +304,7 @@ export default function Home() {
             </div>
           </div> */}
         </div>
-        <h1 className="dopEdu">Дополнительное образование</h1>
+        <h1 className="dopEdu">Удостоверения и сертификаты о повышении квалификации:</h1>
         <ExtraEdu/>
         <div className="secondGrid ">
             <div className='text'>
@@ -339,7 +341,7 @@ export default function Home() {
               </ul>
             </div>
             <Image
-            className='pt-[20px] im2'
+            className=' im2'
             alt='Моё фото'
             src={Im2}
             height={600}
@@ -348,7 +350,7 @@ export default function Home() {
         </div>
           <div className="form">
             <h1 className="form_work">Формат работы</h1>
-            <ul className='pl-3 flex flex-row list-none justify-center items-start w-[100%]'>
+            <ul className='pl-3 flex flex-row list-none justify-center items-start w-[90%]'>
                 <motion.li 
                 className='liJob work'
                 initial={{ x: -5, opacity: 0, scale: 0.4}}
@@ -358,9 +360,8 @@ export default function Home() {
                   scale: 1,
                 } : {}}
                 transition={{
-                  default: { type: "spring",
-                  stiffness: 500,
-                  damping: 50, delay: isVisible2 ? 1 * 0.8 : 0 },
+                  default: { type: "spring"},
+                  opacity: {delay: isVisible2 ? 1 * 0.5 : 0 },
                 }}
                 >
                   <Image alt={"оффлайн"}
@@ -380,9 +381,8 @@ export default function Home() {
                   scale: 1,
                 } : {}}
                 transition={{
-                  default: { type: "spring",
-                  stiffness: 500,
-                  damping: 50, delay: isVisible2 ? 2 * 0.8 : 0 },
+                  default: { type: "spring"},
+                  opacity: {delay: isVisible2 ? 1 * 0.5 + 1 : 0 },
                 }}
                 
                 >
@@ -403,9 +403,8 @@ export default function Home() {
                   scale: 1,
                 } : {}}
                 transition={{
-                  default: { type: "spring",
-                  stiffness: 500,
-                  damping: 50, delay: isVisible2 ? 3 * 0.8 : 0 },
+                  default: { type: "spring"},
+                  opacity: {delay: isVisible2 ? 1 * 0.5 + 2 : 0 },
                 }}
                 >
                   <Image alt={"часы"}
@@ -425,9 +424,8 @@ export default function Home() {
                   scale: 1,
                 } : {}}
                 transition={{
-                  default: { type: "spring",
-                  stiffness: 500,
-                  damping: 50, delay: isVisible2 ? 4 * 0.8 : 0 },
+                  default: { type: "spring"},
+                  opacity: {delay: isVisible2 ? 1 * 0.5 + 3: 0 },
                 }}
                 >
                   <Image alt={"условия"}
@@ -440,7 +438,7 @@ export default function Home() {
                 </motion.li>
             </ul>
         </div>
-          <div className=' w100'>
+          <div className='w100'>
             Уверен, что источник изменений находится внутри человека. Работа с бессознательным – это совместный труд клиента и терапевта, результатом которого является личностный рост и принципиальное изменение качества жизни.
           </div>
       </main>
