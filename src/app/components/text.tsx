@@ -3,7 +3,7 @@ import Typed from 'typed.js';
 import { motion } from "motion/react";
 
 export default function Text({text, className, place}:{text: string, className?: string, place: number}){
-    const el = useRef<HTMLSpanElement>(null);
+    const el = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     useEffect(() => {
         const options = {
@@ -54,7 +54,7 @@ export default function Text({text, className, place}:{text: string, className?:
     
     return(
         <div className={`${className} text`}>
-            <span ref={el}/>
+            <div ref={el}/>
             <motion.div
             initial={{opacity: 0}}
             animate={{

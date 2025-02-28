@@ -104,28 +104,6 @@ export default function Home() {
     {id: 7, text: "Отсутствие цели"},
   ]
   
-  const format = [
-    {
-      id: 1,
-      img: offline,
-      text: "Индивидуальный приём очно в центре  Новосибирска"
-    },
-    {
-      id: 2,
-      img: online,
-      text: "Онлайн из любой точки мира"
-    },
-    {
-      id: 3,
-      img: clocks,
-      text: "Время сессии ~ 50 минут"
-    },
-    {
-      id: 4,
-      img: individual,
-      text: "Остальные условия обсуждаются индивидуально"
-    }
-  ]
 
   const allEduSet = [
     {
@@ -279,7 +257,7 @@ export default function Home() {
                   text='Я психоаналитически ориентированный психотерапевт. Являюсь членом национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии в России, ЕАРПП НО ECPP (Vienna, Austria) и членом правления регионального Новосибирского отделения ЕАРПП. Веду частную практику.'
               />
             </div>
-            <Text className='mt' place={3} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры' />
+            <Text className='mt' place={2} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры' />
           <MainEdu/>
 
             {/* <div className="contacts to767">
@@ -335,7 +313,7 @@ export default function Home() {
                 className='list-item'
                 style={{
                   height: '60px',
-                  background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(128, 128, 128, 0.4) 100%)',
+                  background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(128, 128, 128, 0.4) 100%)',
                   backgroundSize: '400% 400%',
                   margin: "5px",
                   textAlign: "left",
@@ -350,7 +328,7 @@ export default function Home() {
                 } : {}}
                 transition={{
                   default: { type: "spring"},
-                  opacity: { ease: "linear", delay: isVisible ? 0.8 + index * 0.3 : 0 },
+                  opacity: { ease: "linear", delay: isVisible ? 0.5 + index * 0.3 : 0 },
                   backgroundPosition: { duration: 5, ease: 'linear', repeat: Infinity, delay: index + 1 },
                 }}
               >
@@ -361,7 +339,7 @@ export default function Home() {
               </ul>
             </div>
             <Image
-            className='pt-[20px]'
+            className='pt-[20px] im2'
             alt='Моё фото'
             src={Im2}
             height={600}
@@ -371,9 +349,7 @@ export default function Home() {
           <div className="form">
             <h1 className="form_work">Формат работы</h1>
             <ul className='pl-3 flex flex-row list-none justify-center items-start w-[100%]'>
-              {format.map((one) => (
                 <motion.li 
-                key={one.id}
                 className='liJob work'
                 initial={{ x: -5, opacity: 0, scale: 0.4}}
                 animate={isVisible2 ? {
@@ -384,24 +360,89 @@ export default function Home() {
                 transition={{
                   default: { type: "spring",
                   stiffness: 500,
-                  damping: 50, delay: isVisible2 ? one.id * 0.8 : 0 },
+                  damping: 50, delay: isVisible2 ? 1 * 0.8 : 0 },
                 }}
                 >
-                  <Image alt={one.text}
-                  src={one.img}
+                  <Image alt={"оффлайн"}
+                  src={offline}
                   height={160}
                   className='imageJob'/>
                   <span className='pt-[10px]'> 
-                  {one.text}
+                  Индивидуальный приём очно в центре  Новосибирска
                   </span>
                 </motion.li>
-              ))
-                }
+                <motion.li 
+                className='liJob work'
+                initial={{ x: -5, opacity: 0, scale: 0.4}}
+                animate={isVisible2 ? {
+                  x: 0,
+                  opacity: 1,
+                  scale: 1,
+                } : {}}
+                transition={{
+                  default: { type: "spring",
+                  stiffness: 500,
+                  damping: 50, delay: isVisible2 ? 2 * 0.8 : 0 },
+                }}
+                
+                >
+                  <Image alt={"онлайн"}
+                  src={online}
+                  height={160}
+                  className='imageJob'/>
+                  <span className='pt-[10px]'> 
+                  Онлайн из любой точки мира
+                  </span>
+                </motion.li>
+                <motion.li 
+                className='liJob work'
+                initial={{ x: -5, opacity: 0, scale: 0.4}}
+                animate={isVisible2 ? {
+                  x: 0,
+                  opacity: 1,
+                  scale: 1,
+                } : {}}
+                transition={{
+                  default: { type: "spring",
+                  stiffness: 500,
+                  damping: 50, delay: isVisible2 ? 3 * 0.8 : 0 },
+                }}
+                >
+                  <Image alt={"часы"}
+                  src={clocks}
+                  height={130}
+                  className='imageJob pt-[20px]'/>
+                  <span className='pt-[20px]'> 
+                  Время сессии ~ 50 минут
+                  </span>
+                </motion.li>
+                <motion.li 
+                className='liJob work'
+                initial={{ x: -5, opacity: 0, scale: 0.4}}
+                animate={isVisible2 ? {
+                  x: 0,
+                  opacity: 1,
+                  scale: 1,
+                } : {}}
+                transition={{
+                  default: { type: "spring",
+                  stiffness: 500,
+                  damping: 50, delay: isVisible2 ? 4 * 0.8 : 0 },
+                }}
+                >
+                  <Image alt={"условия"}
+                  src={individual}
+                  height={120}
+                  className='imageJob pt-[30px]'/>
+                  <span className='pt-[20px]'> 
+                  Остальные условия обсуждаются индивидуально
+                  </span>
+                </motion.li>
             </ul>
-            <div className=' w100'>
-              Уверен, что источник изменений находится внутри человека. Работа с бессознательным – это совместный труд клиента и терапевта, результатом которого является личностный рост и принципиальное изменение качества жизни.
-            </div>
         </div>
+          <div className=' w100'>
+            Уверен, что источник изменений находится внутри человека. Работа с бессознательным – это совместный труд клиента и терапевта, результатом которого является личностный рост и принципиальное изменение качества жизни.
+          </div>
       </main>
       <footer>
             <div className='zapis'>
@@ -457,7 +498,7 @@ export default function Home() {
               <Image
                   src={ws}
                   alt='WP'
-                  className='footerImage'
+                  className='footerImage WP'
                   />
                 <span className="cursor-pointer pl-3"
                 onClick={(e) => handlePopUp(e, 'tele')}
