@@ -258,8 +258,7 @@ export default function Home() {
               />
             </div>
             <Text 
-            
-            className='self-center pl0' place={2} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры.' />
+            className='pt10' place={2} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры.' />
           <MainEdu/>
 
             {/* <div className="contacts to767">
@@ -330,8 +329,8 @@ export default function Home() {
                 } : {}}
                 transition={{
                   default: { type: "spring"},
-                  opacity: { ease: "linear", delay: isVisible ? 0.5 + index * 0.3 : 0 },
-                  backgroundPosition: { duration: 5, ease: 'linear', repeat: Infinity, delay: index + 1 },
+                  opacity: { ease: "linear", delay: isVisible ? index * 0.3 : 0 },
+                  backgroundPosition: { duration: 8, ease: 'linear', repeat: Infinity, delay: index + 1 },
                 }}
               >
                 {problem.text}

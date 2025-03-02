@@ -6,6 +6,7 @@ import Sertifikat_NPK_EARPP_RO_23 from '../../../public/Sertifikat_NPK_EARPP_RO-
 import Udostoverenie_GTsOZ_Magistr_2023 from '../../../public/Udostoverenie_GTsOZ_Magistr_2023/Udostoverenie_GTsOZ_Magistr_2023_page-0001.jpg'
 import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../../public/Udostoverenie_ISPiP_Yan_Fyodorov_2021/Udostoverenie_ISPiP_Yan_Fyodorov_2021_page-0001.jpg'
 import Udostoverenie_NIPKiPRO_2024 from '../../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
+import XVIISertificat from "../../../public/Сертификат XVII ЗШ_page-0001.jpg"
 import "../styles.scss"
 import Image from 'next/image';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
@@ -58,6 +59,11 @@ const ExtraEduSet = [
         text: "Удостоверение ИСПиП 2021",
         image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
     },
+    {
+        id: 11,
+        text: "Сертифкат Зимней Школы",
+        image:XVIISertificat
+    }
 ]
 export const ExtraEdu =() => {
      // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -87,6 +93,7 @@ export const ExtraEdu =() => {
                 alt={one.text}
                 src={one.image}
                 className='slImg' 
+                loading="eager"
                 />
             </SwiperSlide>
         ))}
