@@ -40,7 +40,7 @@ export const MainEdu =({className}:
     ]
     return(
         <ScrollCheck className={` mt-12 ${className}`}>
-            <h1 className="pt-8 pl-12 edu_head">Основное образование:</h1>
+            <h1 className="pt-8 pl-12 edu_head">Моё образование:</h1>
             <ul className="pl-3 pb-10">
             {mainEduSet.map((item) => (
                 <li 

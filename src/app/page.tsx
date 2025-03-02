@@ -10,6 +10,7 @@ import Sertifikat_NPK_EARPP_RO_23 from '../../public/Sertifikat_NPK_EARPP_RO-San
 import Udostoverenie_GTsOZ_Magistr_2023 from '../../public/Udostoverenie_GTsOZ_Magistr_2023/Udostoverenie_GTsOZ_Magistr_2023_page-0001.jpg'
 import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../public/Udostoverenie_ISPiP_Yan_Fyodorov_2021/Udostoverenie_ISPiP_Yan_Fyodorov_2021_page-0001.jpg'
 import Udostoverenie_NIPKiPRO_2024 from '../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
+import XVIISertificat from "../../public/Сертификат XVII ЗШ_page-0001.jpg"
 import tg from "../../public/tg.png"
 import ws from "../../public/wp.png"
 import em from "../../public/email.png"
@@ -35,12 +36,7 @@ export default function Home() {
     email: false,
   });
   const [layout, setLayout] = useState<boolean>(false)
-  const [popUp, setPopUp] = useState<boolean>(false)
-  // const educationRef = useRef<HTMLDivElement>(null);
-  // const workFormRef = useRef<HTMLDivElement>(null);
   const teleRef = useRef<HTMLSpanElement>(null);
-  const emailRef = useRef<HTMLSpanElement>(null);
-  // const tgRef = useRef<HTMLSpanElement>(null);
   const [img, setImage] = useAtom(ImgAtom);
   const [isVisible, setIsVisible] = useState(false);
   const [isVisible2, setIsVisible2] = useState(false);
@@ -96,12 +92,10 @@ export default function Home() {
   }
   const problems = [
     {id: 1, text: "Проблемы в отношениях"},
-    {id: 2, text: "Прокрастинация"},
-    {id: 3, text: "Трудности самоопределения"},
-    {id: 4, text: "Нестабильная самооценка"},
-    {id: 5, text: "Ощущение одиночества"},
-    {id: 6, text: "Перепады настроения"},
-    {id: 7, text: "Отсутствие цели"},
+    {id: 2, text: "Трудности самоопределения"},
+    {id: 3, text: "Эмоциональная зависимость"},
+    {id: 4, text: "Отсутствие цели"},
+    {id: 5, text: "Нестабильная самооценка"},
   ]
   
 
@@ -162,76 +156,56 @@ export default function Home() {
         text: "Удостоверение ИСПиП 2021",
         image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
     },    
+    {
+      id: 11,
+      text: "Сертифкат Зимней Школы",
+      image:XVIISertificat
+    }   
       ]
       useEffect(() => {
-        if(img == 0 || img && img  < 10000){
-          setLayout(true)
+        if (img !== undefined && img < 10000) {
+          setLayout(true);
+        } else {
+          setLayout(false)
         }
+        console.log(img)
       },[img])
+
 
   return (
     <div className="page">
-      {/* <header>
-        <div className="font- text-left logo ">
-        ПСИХОЛОГ-
-        
-          <br/>
-          ПСИХОАНАЛИТИК</div>
-          <div className="nav">
-            {/* <span className="cursor-pointer to767"
-            onClick={() => scrollToSection(educationRef)}
-            >Образование</span>
-            <span className="cursor-pointer to767"
-            onClick={() => scrollToSection(workFormRef)}
-            >Формат работы</span> 
-            <div className="cursor-pointer zapis"
-            onClick={() => {
-            }}
-            >
 
-            <a href="https://wa.me/79994660717" target="_blank" rel="noopener noreferrer">
-            <Image
-            src={wp}
-            alt="Вацап"
-            width={80}
-            height={80}
-            className='soc upto374'
-            />
-            </a>
-            <a href="https://t.me/rpa4e8"
-              target="_blank" 
-              rel="noopener noreferrer">
-            <Image
-            src={tg}
-            alt="Телеграм"
-            width={80}
-            height={80}
-            className='soc'
-            />
-            </a>
-      <a 
-      href="https://mail.google.com/mail/?view=cm&fs=1&to=rp@4e8.ru&su=Запись%20на%20приём&body=" 
-      target="_blank" rel="noopener noreferrer">
-          <Image
-          src={email}
-          alt="Почта"
-          width={80}
-          height={80}
-          className='soc upto374'
-          />
-        </a>
-            </div>
-          </div>
-      </header> */}
       <main>
-      {layout &&
+      {layout && img !== undefined &&
+      <>
         <div className="layout"
         onClick={() => {
           setLayout(false)
-          if (popUp) setPopUp(false)
-          else setImage(10000)
+          setImage(10001)
         }}>
         </div>
+          <div className="arrow left"
+          onClick={() => {
+            if(img > 0) {
+              setImage(img-1)
+            } else if (img == 0){
+              setImage(11)
+              }
+            }
+          }
+          >&#10094;</div>
+          <div className="arrow right"
+          onClick={() =>  {
+            if(img< 11) {
+              setImage(img+1)
+            } else if (img == 11){
+              setImage(0)
+              }
+            }
+          }
+          >&#10095;
+          </div>
+        </>
       }
       {img !== undefined &&  img < allEduSet.length  &&(
         <>
@@ -243,6 +217,7 @@ export default function Home() {
         </>
         )}
         <div className="firstGrid">
+        <h1 className='name under767'>Меня зовут Юрий Грачёв</h1>
           <Image src={title_image}
           alt="Фото"
           width={600}
@@ -251,69 +226,19 @@ export default function Home() {
           className="title_image"
           />
           <div className='righttop'>
-              <h1 className='name'>Меня зовут Юрий Грачёв</h1>
+              <h1 className='name to767'>Меня зовут Юрий Грачёв</h1>
               <Text
                   place={0}
                   text='Я психоаналитически ориентированный психотерапевт. Являюсь членом национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии в России, ЕАРПП НО ECPP (Vienna, Austria) и членом правления регионального Новосибирского отделения ЕАРПП.'
               />
             </div>
-            <Text 
-            className='pt10' place={2} text='Имею опыт работы с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. В работе придерживаюсь психоаналитических принципов и этического кодекса. Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры.' />
-          <MainEdu/>
-
-            {/* <div className="contacts to767">
-                <p className="cont_label">
-                  Контакты
-                </p>
-                <div className="contacts-head"> 
-                  Телефон:
-                  <span className="text-[#3B3EE3] ml cursor-pointer"
-                onClick={(e) => handlePopUp(e, 'tele')}
-                ref={teleRef}>
-                +7 999 466-07-17
-              </span>
-              {popupVisible.tele ? (
-                <div className="copy_popup visible">Телефон скопирован</div>
-              ) :
-              <div className="copy_popup">Телефон скопирован</div>
-              }
-            </div>
-            <div className="contacts-head"> 
-              Электронная почта:
-              <span className="text-[#3B3EE3] ml cursor-pointer"
-                ref={emailRef}
-                onClick={(e) => handlePopUp(e, 'email')}>
-                rp@4e8.ru
-              </span>
-              {popupVisible.email ? (
-                <div className="copy_popup visible">Эл. почта скопирована</div>
-              ) :
-              <div className="copy_popup">Эл. почта скопирована</div>
-              }
-            </div>
-            <div className="contacts-head"> 
-              Телеграм-канал:
-              <span className="text-[#3B3EE3] ml cursor-pointer"
-                ref={tgRef}
-                >
-                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer">
-                    t.me/ncuxo_analiz
-                  </a>
-              </span>
-            </div>
-          </div> */}
-        </div>
-        <h1 className="dopEdu">Удостоверения и сертификаты о повышении квалификации:</h1>
-        <ExtraEdu/>
-        <div className="secondGrid ">
-            <div className='text'>
+            <div className='text pt-[20px]'>
               <h5> Некоторые примеры запросов, с которыми ко мне можно обратиться:</h5>
               <ul className='flex flex-col pt-[30px]'>
                 {problems.map((problem, index) => (
                 <motion.li
                 className='list-item'
                 style={{
-                  height: '60px',
                   background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(128, 128, 128, 0.4) 100%)',
                   backgroundSize: '400% 400%',
                   margin: "5px",
@@ -339,17 +264,30 @@ export default function Home() {
                 ))}
               </ul>
             </div>
+          
+          <MainEdu/>
+
+          
+        </div>
+        <h1 className="dopEdu">Удостоверения и сертификаты о повышении квалификации:</h1>
+        <ExtraEdu/>
+        <div className="secondGrid ">
+          <Text 
+            className='pt10' place={2}
+            text={`Работаю с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. 
+            В работе придерживаюсь психоаналитических принципов и этического кодекса. 
+            Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры.`}/>
             <Image
             className=' im2'
             alt='Моё фото'
             src={Im2}
-            height={600}
+            height={400}
             />
             
         </div>
           <div className="form">
             <h1 className="form_work">Формат работы</h1>
-            <ul className='pl-3 flex flex-row list-none justify-center items-start w-[90%]'>
+            <ul className='f_nts'>
                 <motion.li 
                 className='liJob work'
                 initial={{ x: -5, opacity: 0, scale: 0.4}}
@@ -443,16 +381,23 @@ export default function Home() {
       </main>
       <footer>
             <div className='zapis'>
-                <div>
-                  <Image
-                  src={tg}
-                  alt='ТГ'
-                  className='footerImage'
+            <div>
+            {popupVisible.tele ? (
+                <div className="copy_popup visible">Телефон скопирован</div>
+              ) :
+              <div className="copy_popup">Телефон скопирован</div>
+              }
+              <Image
+                  src={ws}
+                  alt='WP'
+                  className='footerImage WP'
                   />
-                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer" className='pl-3'>
-                    Мой телеграм-канал
-                  </a>
-                </div>
+            <span className="cursor-pointer pl-3"
+                onClick={(e) => handlePopUp(e, 'tele')}
+                ref={teleRef}>
+                +7 999 466-07-17
+              </span>
+              </div>
                 <div>
                 <Image
                   src={tg}
@@ -466,42 +411,32 @@ export default function Home() {
                     Написать в телеграм
                   </a>
                 </div>
-              </div>
+                </div>
+                <div className='zapis'>
+                <div>
+                  <Image
+                  src={tg}
+                  alt='ТГ'
+                  className='footerImage'
+                  />
+                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer" className='pl-3'>
+                    Мой телеграм-канал
+                  </a>
+                </div>
               
-              <div className="zapis">
-              {popupVisible.tele ? (
-                <div className="copy_popup visible">Телефон скопирован</div>
-              ) :
-              <div className="copy_popup">Телефон скопирован</div>
-              }
               <div>
               <Image
                   src={em}
                   alt='ТГ'
                   className='footerImage'
                   />
-              <span className="cursor-pointer pl-3"
-                ref={emailRef}
-                onClick={(e) => handlePopUp(e, 'email')}>
-                rp@4e8.ru
-              </span>
-              </div>
-              {popupVisible.email ? (
-                <div className="copy_popup visible">Эл. почта скопирована</div>
-              ) :
-              <div className="copy_popup">Эл. почта скопирована</div>
-              } 
-              <div>
-              <Image
-                  src={ws}
-                  alt='WP'
-                  className='footerImage WP'
-                  />
-                <span className="cursor-pointer pl-3"
-                onClick={(e) => handlePopUp(e, 'tele')}
-                ref={teleRef}>
-                +7 999 466-07-17
-              </span>
+                <span className="cursor-pointer pl-3">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rp@4e8.ru&su=Запись%20на%20приём&body=" 
+                target="_blank" 
+                rel="noopener noreferrer">
+                  Написать на почту
+                </a>
+                </span>
               </div>
             </div>
       </footer>
