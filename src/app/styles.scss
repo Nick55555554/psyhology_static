@@ -9,6 +9,10 @@
         opacity: 1;
     }
 }
+
+.page{
+    position: relative;
+}
 main{
     display: flex;
     flex-direction: column;
@@ -72,10 +76,15 @@ header{
     align-items: start;
     gap:40px;
 }
+.zapis span{
+    transform: skew(-20deg);
+    display: inline-block;
+}
 .im2{
     margin-top: 20px;
-    border-radius: 48px;
+    border-radius: 40px;
     border: 5px solid #20B2AA;
+    width: 70%;
 }
 .swiper {
     width: 90%;
@@ -85,6 +94,7 @@ header{
     border-radius: 40px;
 
 }
+
 .swiper-slide{
     display: flex;
     padding-top: 40px;
@@ -100,7 +110,7 @@ header{
 }
 .swiper-button-next,
 .swiper-button-prev {
-    color: #000000; 
+    color: #000000 !important; 
 }
 
 .swiper-button-next:hover,
@@ -151,7 +161,7 @@ header{
     margin: 30px 0 0 0;
     box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.3);
     border: 5px solid #20B2AA;
-    animation: fadeIn 2s ease-out forwards;
+    animation: fadeIn 2s ease forwards;
 }
 
 .pencil{
@@ -181,9 +191,8 @@ header{
     margin: 50px 10% 0 10%;
     text-align: center;
     text-justify: inter-word;
-    padding-top: 50px;
+    padding: 20px 50px;
     animation: fadeIn 2s ease-out forwards;
-    padding: 20px;
     hyphens: auto;
     font-size: clamp(rem(16), rem(16) + 1vw, rem(36));
     border-radius: 50px;
@@ -194,11 +203,12 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 140px;
+    height: 120px;
     border-top: 10px solid #20B2AA;
     color: black;
     font-size: clamp(1rem,0.8rem + 2vw, 1.6rem);
     padding: 0 50px;
+
 }
 .righttop{
     display: flex;
@@ -208,7 +218,7 @@ footer{
 }
 .border{
     border: 5px solid #20B2AA;
-    border-radius: 70px;
+    border-radius: 40px;
     width: 80%;
     height: auto;;
     margin: 30px;
@@ -308,27 +318,7 @@ footer, .border, .w100{
     cursor: pointer;
     color:#20B2AA;
 }
-.contacts{
-    width: 100%;
-    padding-left: 12%;
-}
-.contacts p{
-    font-size: rem(56); 
-    font-weight: 500;
-}
-.cont_label{
-    font-weight: 400;
-    color: #20B2AA;
-    border-radius: 50%;
-    width: 350px;
-    line-height: 100px;
-    height: 100px;
-    padding-top: 10px;
-}
-.contacts span, .contacts .contacts-head{
-    line-height: 50px;
-    font-size: rem(28);
-}
+
 .copy_popup{
     position: absolute;
     display: inline-block;
@@ -360,6 +350,10 @@ footer, .border, .w100{
     width: 40px;
     height: auto;
 }
+.copiImage{
+    display: inline-block;
+    width: 10%;
+}
 
 .layout{
     width: 100%;
@@ -376,12 +370,13 @@ footer, .border, .w100{
     transform: translateY(-50%);
     font-size: 3em;
     cursor: pointer;
-    color: white;
-    background-color: #20B2AA;
-    padding: 10px;
+    color: black;
     border-radius: 50px;
     z-index: 1000;
-
+}
+.arrow:hover{
+    cursor: pointer;
+    color:#20B2AA
 }
 
 .left {
@@ -434,12 +429,6 @@ footer, .border, .w100{
     margin-bottom: 30px;
 }
 
-.wa,.tm,.em{
-    width: 250px;
-    height: auto;
-    margin: 3%;
-    cursor: pointer;
-}
 .f_nts{
     display: flex;
     flex-direction: row;
@@ -453,6 +442,70 @@ footer, .border, .w100{
     display: none;
 }
 
+.telcircle{
+    position: fixed;
+    width: 8%;
+    aspect-ratio: 2 / 0.8;
+    border-radius: 15%;
+    background-color: rgba(255,255,255,0.7);
+    border: 3px solid #20B2AA;
+    bottom: 5%;
+    right: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 98;
+    font-size: clamp(rem(14),0.5rem + 1vw, rem(32));
+}
+.telcircle:hover{
+    background-color: #20B2AA70;
+}
+.tcimg{
+    width: 70%;
+}
+.copied{
+    position: fixed;
+    width:25%;
+    aspect-ratio: 2 / 1;
+    border-radius: 30px;
+    background-color:#ffffff;
+    bottom: 18%;
+    right: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:5%;
+    z-index: 98;
+    padding-left: 1%;
+    text-align: start;
+    font-size: clamp(rem(12),0.5rem + 1vw, rem(24));
+    opacity: 0;
+    transition: opacity 1s ease;
+    color: rgba(0,0,255,0.8);
+}
+.copied::after{
+    content: '';
+    position: absolute;
+    bottom: -50px; 
+    right: 7.7%;
+    width: 80px; /* Длина черточки */
+    height: 70px; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 0px 0 100px 50px;
+    transform: rotate(90deg);
+    z-index: 50;
+}
+.vis{
+    opacity: 1;
+}
+.copied a{
+    transform: skew(-50deg);
+}
+.em{
+    margin-left: 1%;
+    width:8%;
+}
 @media (max-width:2560px) {
     .nav{
         font-size: rem(40);
@@ -484,9 +537,6 @@ footer, .border, .w100{
     .contacts span, .contacts .contacts-head{
         font-size: rem(40);
         padding-top: 20px;
-    }
-    .wa,.tm,.em{
-        width: 450px;
     }
     .list-item{
         height: 80px;
@@ -523,9 +573,6 @@ footer, .border, .w100{
     .contacts span, .contacts .contacts-head{
         font-size: rem(40);
         padding-top: 20px;
-    }
-    .wa,.tm,.em{
-        width: 350px;
     }
     .pt10{
         padding-top: 70px;
@@ -591,10 +638,6 @@ footer, .border, .w100{
 
 
 @media(max-width: 1550px){
-    .wa,.tm,.em{
-        width: 200px;
-        height: auto;
-    }
     .popUp{
         width: 60%;
     }
@@ -624,8 +667,26 @@ footer, .border, .w100{
         font-size: rem(40);
         padding-left:20px;
     }
+    .telcircle{
+        width: 10%;
+    }
+    .copied{
+        bottom: 20%;
+    }
+    .copied::after{
+        width: 60px;
+        bottom: -25%;
+    }
 }
-
+@media(max-width: 1440px){
+    .copied{
+        bottom: 15%;
+    }
+    .copied::after{
+        width: 60px;
+        bottom: -25%;
+    }
+}
 
 @media(max-width: 1300px){
     .nav{
@@ -692,6 +753,19 @@ footer, .border, .w100{
         flex-direction: column;
         gap: 10px;
     }
+    .telcircle{
+        width: 12%;
+    }
+    .copied{
+        bottom: 20%;
+    }
+    .copied::after{
+        height: 55px;
+
+    }
+    .telcircle{
+        width:13%
+    }
 }
 
 @media(max-width: 1050px){
@@ -718,17 +792,6 @@ footer, .border, .w100{
     .popUp{
         width: 85%;
     }
-    .wa,.tm,.em{
-        width: 200px;
-        height: auto;
-    }
-
-    .cont_label{
-        font-size: rem(48);
-    }
-    .contacts span, .contacts .contacts-head{
-        font-size: rem(28);
-    }
     .name{
         padding-bottom: 20px;
     }
@@ -742,6 +805,12 @@ footer, .border, .w100{
     }
     .slImg{
         height: 130px;
+    }
+    .im2{
+        width: 80%;
+    }
+    .copied{
+        width: 30%;
     }
 
 }
@@ -768,9 +837,6 @@ footer, .border, .w100{
     .edu,.work{
         font-size: rem(24);
     }
-    .border{
-        border: 8px solid #20B2AA;
-    }
     .popUp_v{
         flex-direction: column;
     }
@@ -780,10 +846,6 @@ footer, .border, .w100{
     .popUp{
         width: 40%;
         height: 60%;
-    }
-    .wa,.tm,.em{
-        width: 90px;
-        height: auto;
     }
     .name{
         padding-bottom: 20px;
@@ -796,6 +858,16 @@ footer, .border, .w100{
         height: 45px !important;
         width: 45px !important;
     } 
+    .copied{
+        bottom: 23%;
+
+    }
+    .copied::after{
+        height: 50px;
+    }
+    .telcircle{
+        width:15%
+    }
 
 }
 @media(max-width: 840px){
@@ -825,16 +897,8 @@ footer, .border, .w100{
     .nav{
         gap:3%;
     }
-
-    .popUp_h{
-        display: none;
-    }
-    .popUp_h{
-        font-size: rem(36);
-    }
-    .wa,.tm,.em{
-        width: 90px;
-        height: auto;
+    .im2{
+        width: 90%;
     }
     .popUp{
         width:40%;
@@ -846,11 +910,28 @@ footer, .border, .w100{
     .zapis{
         margin-right: 30px;
     }
+    .telcircle{
+        width: 15%;
+        right: 5%;
+    }
+    .copied{
+        bottom: 20%;
+        right:7%;
+        width: 30%;
+    }
+    .copied::after{
+        height: 40px;
+        width: 40px;
+        bottom: -20%;
+    }
 
 }
 @media(max-width: 768px){
     .to767{
         display: none;
+    }
+    .im2{
+        width:60%;
     }
     .under767{
         display: block;
@@ -896,11 +977,9 @@ footer, .border, .w100{
     .border, .text{
         width: 90%;
         margin: 20px auto;
-        text-align: center;
     }
     .text, .ListItemText{
         font-size: rem(22);
-        text-align: center;
     }
     .title_image{
         width:70%;
@@ -908,10 +987,6 @@ footer, .border, .w100{
     }
     h1{
         font-size: rem(32);
-    }
-    .wa,.tm,.em{
-        width: 100px;
-        height: auto;
     }
     .name{
         font-size: rem(40);
@@ -930,12 +1005,28 @@ footer, .border, .w100{
     }
     footer{
         padding: 0 20px;
-        height: 240px;
-        justify-content: space-evenly;
+        height: 170px;
+        justify-content: center;
         flex-direction: column;
+        gap: 10px;
     }
     .zapis{
         gap: 10px;
+    }
+    .telcircle{
+        width: 17%;
+        right: 5%;
+    }
+    .copied{
+        bottom: 18%;
+        right:7%;
+        width: 35%;
+        padding-left: 10px;
+    }
+    .copied::after{
+        height: 40px;
+        width: 35px;
+        bottom: -20%;
     }
 
 }
@@ -963,16 +1054,9 @@ footer, .border, .w100{
         line-height: 60px;
     }
     
-    .nav{
-        margin-left: 0;
-    }
     .popUp{
         width: 60%;
         height: 70%;
-    }
-    .wa,.tm,.em{
-        width: 100px;
-        height: auto;
     }
     .edu, .work{
         font-size: rem(20);
@@ -980,8 +1064,8 @@ footer, .border, .w100{
     .edu_head{
         font-size: rem(28);
     }
-    .contacts p{
-        font-size: rem(32); 
+    .telcircle{
+        width: 20%;
     }
 
     .zapis{
@@ -998,11 +1082,33 @@ footer, .border, .w100{
     } 
     .text, .ListItemText{
         font-size: rem(20);
-        text-align: center;
     }
     .arrow{
         font-size: 2em;
         padding: 5px;
+    }
+    .list-item{
+        height: auto;
+    }
+    .im2{
+        width:80%;
+    }
+    .w100{
+        padding: 20px;
+    }
+    .telcircle{
+        width: 17%;
+        right: 5%;
+    }
+    .copied{
+        bottom: 15%;
+        right:7%;
+        width: 45%;
+    }
+    .copied::after{
+        height: 40px;
+        width: 30px;
+        bottom: -25px;
     }
 }
 @media(max-width: 414px){
@@ -1033,13 +1139,12 @@ footer, .border, .w100{
         border-radius: 7%;
         height: 55%;
     }
+    .title_image{
+        width:90%;
+    }
     .popUp_h{
         font-size: rem(26);
         font-weight: 700;
-    }
-    .wa,.tm,.em{
-        width: 90px;
-        height: auto;
     }
     .pencil{
         size: 18;
@@ -1048,9 +1153,22 @@ footer, .border, .w100{
         height: 40px !important;
         width: 40px !important;
     } 
-    .list-item{
-        width: 250px;
-        height: 70px;
+    .dopEdu{
+        margin-bottom: 30px;
+    }
+    .telcircle{
+        width: 25%;
+        right: 5%;
+    }
+    .copied{
+        bottom: 15%;
+        right:7%;
+        width: 55%;
+    }
+    .copied::after{
+        height: 40px;
+        width: 40px;
+        bottom: -25px;
     }
     
 }

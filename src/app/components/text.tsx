@@ -41,7 +41,7 @@ export default function Text({ text, className, place }: { text: string, classNa
                     opacity: 1,
                     transition: {
                         default: { type: "spring" },
-                        opacity: { ease: "linear", duration: 2, delay: 1 }
+                        opacity: { ease: "linear", duration: 2 }
                     }
                 }}
             >

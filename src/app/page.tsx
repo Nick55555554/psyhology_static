@@ -33,13 +33,14 @@ import Im2 from "../../public/Im2.jpg"
 export default function Home() {
   const [popupVisible, setPopupVisible] = useState({
     tele: false,
-    email: false,
   });
-  const [layout, setLayout] = useState<boolean>(false)
-  const teleRef = useRef<HTMLSpanElement>(null);
+  const [layout, setLayout] = useState<boolean>(false);
   const [img, setImage] = useAtom(ImgAtom);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isVisible2, setIsVisible2] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const teleref = useRef<HTMLSpanElement>(null);
+  const [isVisible2, setIsVisible2] = useState<boolean>(false);
+  const copiedRef = useRef<HTMLDivElement>(null)
+  const visRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,7 +68,7 @@ export default function Home() {
             }
           });
       },
-      { threshold: 1 } 
+      { threshold: 0.2 } 
     );
 
     const listItems2 = document.querySelectorAll('.liJob.work');
@@ -90,6 +91,23 @@ export default function Home() {
       }, 1000);
     })
   }
+
+    useEffect(() => {
+      const handleClickOutside = (e: MouseEvent) => {
+        if (copiedRef.current && visRef.current && !copiedRef.current.contains(e.target as Node) && !visRef.current.contains(e.target as Node)) {
+          copiedRef.current.classList.remove('vis')
+          console.log('sdgsdf')
+        }
+        console.log('dfdf')
+      };
+
+      document.addEventListener('click', handleClickOutside);
+      
+      // return () => {
+      //   document.removeEventListener('click', handleClickOutside);
+      // };
+    }, []);
+
   const problems = [
     {id: 1, text: "Проблемы в отношениях"},
     {id: 2, text: "Трудности самоопределения"},
@@ -174,6 +192,61 @@ export default function Home() {
 
   return (
     <div className="page">
+      <div className='telcircle'
+      ref={visRef}
+      onClick={() => {
+        copiedRef.current?.classList.add('vis')
+        if(copiedRef.current)
+        console.log(copiedRef.current.classList)
+      }
+      }
+      >
+        Запись
+      </div>
+
+        <div 
+        ref={copiedRef}
+        className="copied">
+            <div>
+                  <Image
+                  src={ws}
+                  alt='WP'
+                  className='copiImage'
+                  />
+                  <a className='pl-2'
+                  href="https://wa.me/79994660717" target="_blank">
+                  Написать в WhatsApp
+                  </a>
+                </div>
+                <div>
+                <Image
+                  src={tg}
+                  alt='ТГ'
+                  className='copiImage'
+                  />
+              <a href="https://t.me/rpa4e8"
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className='pl-2'>
+                Написать в Telegram
+              </a>
+              </div>
+              <div>
+                <div>
+                  <Image
+                  src={em}
+                  alt='ТГ'
+                  className='copiImage em'
+                  />
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rp@4e8.ru&su=Запись%20на%20приём&body=" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className='pl-3'>
+                  Написать на почту
+                </a>
+                </div>
+          </div>
+        </div>
 
       <main>
       {layout && img !== undefined &&
@@ -229,7 +302,8 @@ export default function Home() {
               <h1 className='name to767'>Меня зовут Юрий Грачёв</h1>
               <Text
                   place={0}
-                  text='Я психоаналитически ориентированный психотерапевт. Являюсь членом национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии в России, ЕАРПП НО ECPP (Vienna, Austria) и членом правления регионального Новосибирского отделения ЕАРПП.'
+                  text={`Я психоаналитически ориентированный психотерапевт. 
+                  Являюсь членом национального отделения Европейской Ассоциации Развития Психоанализа и Психотерапии в России, ЕАРПП НО ECPP (Vienna, Austria) и членом правления регионального Новосибирского отделения ЕАРПП.`}
               />
             </div>
             <div className='text pt-[20px]'>
@@ -254,7 +328,7 @@ export default function Home() {
                 } : {}}
                 transition={{
                   default: { type: "spring"},
-                  opacity: { ease: "linear", delay: isVisible ? index * 0.3 : 0 },
+                  opacity: { ease: "linear", delay: isVisible ? index * 0.7 : 0 },
                   backgroundPosition: { duration: 8, ease: 'linear', repeat: Infinity, delay: index + 1 },
                 }}
               >
@@ -272,16 +346,20 @@ export default function Home() {
         <h1 className="dopEdu">Удостоверения и сертификаты о повышении квалификации:</h1>
         <ExtraEdu/>
         <div className="secondGrid ">
+        <Image
+            className='under767 im2'
+            alt='Моё фото'
+            src={Im2}
+            />
           <Text 
             className='pt10' place={2}
             text={`Работаю с детьми, подростками и взрослыми. Специализируюсь на сфере отношений (партнёрские, детско-родительские, рабочие, отношение к себе) и выхода из кризисных ситуаций. 
             В работе придерживаюсь психоаналитических принципов и этического кодекса. 
             Очный приём веду в кабинете в центре Новосибирска, онлайн-встреча возможна из любой точки мира через современные мессенджеры.`}/>
             <Image
-            className=' im2'
+            className=' to767 im2'
             alt='Моё фото'
             src={Im2}
-            height={400}
             />
             
         </div>
@@ -298,7 +376,7 @@ export default function Home() {
                 } : {}}
                 transition={{
                   default: { type: "spring"},
-                  opacity: {delay: isVisible2 ? 1 * 0.5 : 0 },
+                  opacity: {delay: isVisible2 ? 0.2 : 0 },
                 }}
                 >
                   <Image alt={"оффлайн"}
@@ -319,7 +397,7 @@ export default function Home() {
                 } : {}}
                 transition={{
                   default: { type: "spring"},
-                  opacity: {delay: isVisible2 ? 1 * 0.5 + 1 : 0 },
+                  opacity: {delay: isVisible2 ? 1.2 : 0 },
                 }}
                 
                 >
@@ -341,7 +419,7 @@ export default function Home() {
                 } : {}}
                 transition={{
                   default: { type: "spring"},
-                  opacity: {delay: isVisible2 ? 1 * 0.5 + 2 : 0 },
+                  opacity: {delay: isVisible2 ? 2 : 0 },
                 }}
                 >
                   <Image alt={"часы"}
@@ -362,7 +440,7 @@ export default function Home() {
                 } : {}}
                 transition={{
                   default: { type: "spring"},
-                  opacity: {delay: isVisible2 ? 1 * 0.5 + 3: 0 },
+                  opacity: {delay: isVisible2 ? 3: 0 },
                 }}
                 >
                   <Image alt={"условия"}
@@ -380,65 +458,33 @@ export default function Home() {
           </div>
       </main>
       <footer>
-            <div className='zapis'>
             <div>
             {popupVisible.tele ? (
                 <div className="copy_popup visible">Телефон скопирован</div>
               ) :
               <div className="copy_popup">Телефон скопирован</div>
               }
-              <Image
+                <Image
                   src={ws}
                   alt='WP'
                   className='footerImage WP'
                   />
-            <span className="cursor-pointer pl-3"
+                <span className="cursor-pointer pl-3"
                 onClick={(e) => handlePopUp(e, 'tele')}
-                ref={teleRef}>
+                ref={teleref}>
                 +7 999 466-07-17
-              </span>
+                </span>
               </div>
-                <div>
-                <Image
-                  src={tg}
-                  alt='ТГ'
-                  className='footerImage'
-                  />
-                  <a href="https://t.me/rpa4e8"
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className='pl-3'>
-                    Написать в телеграм
-                  </a>
-                </div>
-                </div>
-                <div className='zapis'>
-                <div>
+              <div>
                   <Image
                   src={tg}
                   alt='ТГ'
                   className='footerImage'
                   />
-                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer" className='pl-3'>
+                  <span>                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer" className='pl-3 cursor-pointer'>
                     Мой телеграм-канал
-                  </a>
+                  </a></span>
                 </div>
-              
-              <div>
-              <Image
-                  src={em}
-                  alt='ТГ'
-                  className='footerImage'
-                  />
-                <span className="cursor-pointer pl-3">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rp@4e8.ru&su=Запись%20на%20приём&body=" 
-                target="_blank" 
-                rel="noopener noreferrer">
-                  Написать на почту
-                </a>
-                </span>
-              </div>
-            </div>
       </footer>
     </div>
   );
