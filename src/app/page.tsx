@@ -29,6 +29,76 @@ import { useAtom } from "jotai";
 import Text from './components/text';
 import Im2 from "../../public/Im2.jpg"
 
+const problems = [
+  {id: 1, text: "Проблемы в отношениях"},
+  {id: 2, text: "Трудности самоопределения"},
+  {id: 3, text: "Эмоциональная зависимость"},
+  {id: 4, text: "Отсутствие цели"},
+  {id: 5, text: "Нестабильная самооценка"},
+]
+
+const allEduSet = [
+  {
+        id: 0,
+        text: "Диплом о базовом психологическом образовании",
+        image: Diplom_NGTU_2022_1_srt,
+  },
+  {
+        id: 1,
+        text: "Диплом о психоаналитической переподготовке",
+        image: Diplom_MIP_2024,
+  },
+  {
+        id: 2,
+        text: "Международный сертификат МШГА, COIRAG, EGATIN, EAP",
+        image: Mezhdunarodny_Sertifikat,
+  },
+  {
+    id: 3,
+    text: "Удостоверение ИСПиП 2021",
+    image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
+  },    
+  {
+      id: 4,
+      text: "Сертификат НПК ЕАРПП РО-Новосибирск 2021",
+      image: Sertifikat_NPK_EARPP_RO_Nov_21,
+  },
+  {
+    id: 5,
+      text: "Сертификат НПК ЕАРПП РО-Новосибирск 2022",
+      image: Sertifikat_NPK_EARPP_RO_22,
+  },
+  {
+    id: 6,
+    text: "Удостоверение ГЦОЗ Магистр 2023",
+    image: Udostoverenie_GTsOZ_Magistr_2023,
+  },
+  {
+    id: 7,
+    text: "Удостоверение НИПКиПРО 2024",
+    image: Udostoverenie_NIPKiPRO_2024,
+  },
+  {
+    id: 8,
+    text: "Сертификат НПК ЕАРПП РО-Санкт-Петербург 2023",
+    image: Sertifikat_NPK_EARPP_RO_23,
+  },
+  {
+    id: 9,
+    text: "Сертификат НПК ЕАРПП РО-Екатеринбург 2023",
+    image: Sertifikat_NPK_EARPP_RO_Eka,
+  },
+  {
+    id: 10,
+    text: "Сертификат НГПУ 2024",
+    image: Sertifikat_NGPU_2024,
+  },
+  {
+    id: 11,
+    text: "Сертифкат Зимней Школы",
+    image:XVIISertificat
+  }   
+]
 
 export default function Home() {
   const [popupVisible, setPopupVisible] = useState({
@@ -103,91 +173,17 @@ export default function Home() {
 
       document.addEventListener('click', handleClickOutside);
       
-      // return () => {
-      //   document.removeEventListener('click', handleClickOutside);
-      // };
     }, []);
 
-  const problems = [
-    {id: 1, text: "Проблемы в отношениях"},
-    {id: 2, text: "Трудности самоопределения"},
-    {id: 3, text: "Эмоциональная зависимость"},
-    {id: 4, text: "Отсутствие цели"},
-    {id: 5, text: "Нестабильная самооценка"},
-  ]
-  
 
-  const allEduSet = [
-    {
-          id: 0,
-          text: "Диплом о базовом психологическом образовании",
-          image: Diplom_NGTU_2022_1_srt,
-    },
-    {
-          id: 1,
-          text: "Диплом о психоаналитической переподготовке",
-          image: Diplom_MIP_2024,
-    },
-    {
-          id: 2,
-          text: "Международный сертификат МШГА, COIRAG, EGATIN, EAP",
-          image: Mezhdunarodny_Sertifikat,
-    },
-    {
-          id: 3,
-          text: "Сертификат НГПУ 2024",
-          image: Sertifikat_NGPU_2024,
-    },
-    {
-          id: 4,
-          text: "Удостоверение НИПКиПРО 2024",
-          image: Udostoverenie_NIPKiPRO_2024,
-    },
-    {
-        id: 5,
-        text: "Удостоверение ГЦОЗ Магистр 2023",
-        image: Udostoverenie_GTsOZ_Magistr_2023,
-    },
-    {
-        id: 6,
-        text: "Сертификат НПК ЕАРПП РО-Санкт-Петербург 2023",
-        image: Sertifikat_NPK_EARPP_RO_23,
-    },
-    {
-        id: 7,
-        text: "Сертификат НПК ЕАРПП РО-Екатеринбург 2023",
-        image: Sertifikat_NPK_EARPP_RO_Eka,
-    },
-    {
-        id: 8,
-        text: "Сертификат НПК ЕАРПП РО-Новосибирск 2022",
-        image: Sertifikat_NPK_EARPP_RO_22,
-    },
-
-    {
-        id: 9,
-        text: "Сертификат НПК ЕАРПП РО-Новосибирск 2021",
-        image: Sertifikat_NPK_EARPP_RO_Nov_21,
-    },
-    {
-        id: 10,
-        text: "Удостоверение ИСПиП 2021",
-        image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
-    },    
-    {
-      id: 11,
-      text: "Сертифкат Зимней Школы",
-      image:XVIISertificat
-    }   
-      ]
-      useEffect(() => {
-        if (img !== undefined && img < 10000) {
-          setLayout(true);
-        } else {
-          setLayout(false)
-        }
-        console.log(img)
-      },[img])
+  useEffect(() => {
+    if (img !== undefined && img < 10000) {
+      setLayout(true);
+    } else {
+      setLayout(false)
+    }
+    console.log(img)
+  },[img])
 
 
   return (
@@ -425,7 +421,7 @@ export default function Home() {
                   <Image alt={"часы"}
                   src={clocks}
                   height={130}
-                  className='imageJob pt-[20px]'/>
+                  className='imageJob cl pt-[20px]'/>
                   <span className='pt-[20px]'> 
                   Время сессии ~ 50 минут
                   </span>

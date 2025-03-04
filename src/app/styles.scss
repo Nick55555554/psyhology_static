@@ -202,12 +202,13 @@ footer{
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     height: 120px;
     border-top: 10px solid #20B2AA;
     color: black;
     font-size: clamp(1rem,0.8rem + 2vw, 1.6rem);
     padding: 0 50px;
+    gap: 25%;
 
 }
 .righttop{
@@ -470,7 +471,7 @@ footer, .border, .w100{
     aspect-ratio: 2 / 1;
     border-radius: 30px;
     background-color:#ffffff;
-    bottom: 18%;
+    bottom: 15%;
     right: 4%;
     display: flex;
     flex-direction: column;
@@ -484,18 +485,7 @@ footer, .border, .w100{
     transition: opacity 1s ease;
     color: rgba(0,0,255,0.8);
 }
-.copied::after{
-    content: '';
-    position: absolute;
-    bottom: -50px; 
-    right: 7.7%;
-    width: 80px; /* Длина черточки */
-    height: 70px; 
-    background-color: rgb(255, 255, 255);
-    border-radius: 0px 0 100px 50px;
-    transform: rotate(90deg);
-    z-index: 50;
-}
+
 .vis{
     opacity: 1;
 }
@@ -670,21 +660,10 @@ footer, .border, .w100{
     .telcircle{
         width: 10%;
     }
-    .copied{
-        bottom: 20%;
-    }
-    .copied::after{
-        width: 60px;
-        bottom: -25%;
-    }
 }
 @media(max-width: 1440px){
     .copied{
         bottom: 15%;
-    }
-    .copied::after{
-        width: 60px;
-        bottom: -25%;
     }
 }
 
@@ -757,14 +736,13 @@ footer, .border, .w100{
         width: 12%;
     }
     .copied{
-        bottom: 20%;
-    }
-    .copied::after{
-        height: 55px;
-
+        bottom: 18%;
     }
     .telcircle{
         width:13%
+    }
+    footer{
+        gap:10%;
     }
 }
 
@@ -859,11 +837,8 @@ footer, .border, .w100{
         width: 45px !important;
     } 
     .copied{
-        bottom: 23%;
+        bottom: 20%;
 
-    }
-    .copied::after{
-        height: 50px;
     }
     .telcircle{
         width:15%
@@ -915,14 +890,8 @@ footer, .border, .w100{
         right: 5%;
     }
     .copied{
-        bottom: 20%;
         right:7%;
         width: 30%;
-    }
-    .copied::after{
-        height: 40px;
-        width: 40px;
-        bottom: -20%;
     }
 
 }
@@ -962,7 +931,6 @@ footer, .border, .w100{
     }
     .edu, .work{
         font-size: rem(28);
-        text-align: center;
         margin: 15 auto;
     }
     .edu_head{
@@ -976,7 +944,7 @@ footer, .border, .w100{
     }
     .border, .text{
         width: 90%;
-        margin: 20px auto;
+        text-align: left;
     }
     .text, .ListItemText{
         font-size: rem(22);
@@ -1008,25 +976,33 @@ footer, .border, .w100{
         height: 170px;
         justify-content: center;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
     .zapis{
-        gap: 10px;
+        gap: 20px;
     }
     .telcircle{
         width: 17%;
         right: 5%;
     }
     .copied{
-        bottom: 18%;
+        bottom: 15%;
         right:7%;
         width: 35%;
         padding-left: 10px;
     }
-    .copied::after{
-        height: 40px;
-        width: 35px;
-        bottom: -20%;
+    .imageJob{
+        height: auto;
+        width: 125px;
+    }
+    .cl{
+        width: 110px;
+    }
+    html, body{
+        background-image: url('../../public/fonTele.png');
+        background-repeat: no-repeat; 
+        background-attachment: fixed; 
+        background-size: cover;
     }
 
 }
@@ -1101,14 +1077,12 @@ footer, .border, .w100{
         right: 5%;
     }
     .copied{
-        bottom: 15%;
         right:7%;
         width: 45%;
     }
-    .copied::after{
-        height: 40px;
-        width: 30px;
-        bottom: -25px;
+    .form_work{
+        line-height: 100px;
+        height: 100px;
     }
 }
 @media(max-width: 414px){
@@ -1165,12 +1139,6 @@ footer, .border, .w100{
         right:7%;
         width: 55%;
     }
-    .copied::after{
-        height: 40px;
-        width: 40px;
-        bottom: -25px;
-    }
-    
 }
 @media(max-width: 374px){
     .border{
