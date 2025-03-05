@@ -202,13 +202,13 @@ footer{
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     height: 120px;
     border-top: 10px solid #20B2AA;
     color: black;
     font-size: clamp(1rem,0.8rem + 2vw, 1.6rem);
-    padding: 0 50px;
-    gap: 25%;
+    padding: 50px 0 50px 10%;
+    gap: 10%;
 
 }
 .righttop{
@@ -353,7 +353,7 @@ footer, .border, .w100{
 }
 .copiImage{
     display: inline-block;
-    width: 10%;
+    width: 9%;
 }
 
 .layout{
@@ -445,9 +445,9 @@ footer, .border, .w100{
 
 .telcircle{
     position: fixed;
-    width: 8%;
+    width: 9%;
     aspect-ratio: 2 / 0.8;
-    border-radius: 15%;
+    border-radius: 50px;
     background-color: rgba(255,255,255,0.7);
     border: 3px solid #20B2AA;
     bottom: 5%;
@@ -658,7 +658,10 @@ footer, .border, .w100{
         padding-left:20px;
     }
     .telcircle{
-        width: 10%;
+        width: 12%;
+    }
+    .copied{
+        bottom: 17%;
     }
 }
 @media(max-width: 1440px){
@@ -732,14 +735,11 @@ footer, .border, .w100{
         flex-direction: column;
         gap: 10px;
     }
-    .telcircle{
-        width: 12%;
-    }
     .copied{
-        bottom: 18%;
+        bottom: 19%;
     }
     .telcircle{
-        width:13%
+        width:14%
     }
     footer{
         gap:10%;
@@ -1040,10 +1040,6 @@ footer, .border, .w100{
     .edu_head{
         font-size: rem(28);
     }
-    .telcircle{
-        width: 20%;
-    }
-
     .zapis{
         margin-right: 10px;
     }
@@ -1073,7 +1069,7 @@ footer, .border, .w100{
         padding: 20px;
     }
     .telcircle{
-        width: 17%;
+        width: 20%;
         right: 5%;
     }
     .copied{
@@ -1131,7 +1127,7 @@ footer, .border, .w100{
         margin-bottom: 30px;
     }
     .telcircle{
-        width: 25%;
+        width: 30%;
         right: 5%;
     }
     .copied{

@@ -209,7 +209,7 @@ export default function Home() {
                   alt='WP'
                   className='copiImage'
                   />
-                  <a className='pl-2'
+                  <a className='pl-3'
                   href="https://wa.me/79994660717" target="_blank">
                   Написать в WhatsApp
                   </a>
@@ -223,7 +223,7 @@ export default function Home() {
               <a href="https://t.me/rpa4e8"
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className='pl-2'>
+                className='pl-3'>
                 Написать в Telegram
               </a>
               </div>
