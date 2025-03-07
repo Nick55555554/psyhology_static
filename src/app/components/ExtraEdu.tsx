@@ -6,6 +6,9 @@ import Sertifikat_NPK_EARPP_RO_23 from '../../../public/Sertifikat_NPK_EARPP_RO-
 import Udostoverenie_GTsOZ_Magistr_2023 from '../../../public/Udostoverenie_GTsOZ_Magistr_2023/Udostoverenie_GTsOZ_Magistr_2023_page-0001.jpg'
 import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../../public/Udostoverenie_ISPiP_Yan_Fyodorov_2021/Udostoverenie_ISPiP_Yan_Fyodorov_2021_page-0001.jpg'
 import Udostoverenie_NIPKiPRO_2024 from '../../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
+import Diplom_MIP_2024 from '../../../public/Diplom_MIP_2024/Diplom_MIP_2024_page-0001.jpg'
+import Diplom_NGTU_2022_1_srt from "../../../public/Diplom_NGTU_2022_1_str/Diplom_NGTU_2022_1_str_page-0001.jpg"
+import Mezhdunarodny_Sertifikat from '../../../public/Mezhdunarodny_Sertifikat_MShGA_160ch_2023/Mezhdunarodny_Sertifikat_MShGA_160ch_2023_page-0001.jpg'
 import XVIISertificat from "../../../public/Сертификат XVII ЗШ_page-0001.jpg"
 import "../styles.scss"
 import Image from 'next/image';
@@ -16,59 +19,74 @@ import 'swiper/css/pagination';
 import "../styles.scss"
 import "swiper/css/navigation";
 import { useAtom } from 'jotai'
-import { ImgAtom } from './MainEdu'
+import { imgAtom } from './MainEdu'
 
-const ExtraEduSet = [
+export const eduSet = [
     {
-        id: 3,
-        text: "Сертификат НГПУ 2024",
-        image: Sertifikat_NGPU_2024,
+      id: 0,
+      text: "Удостоверение ИСПиП 2021",
+      image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
+    },    
+    {
+      id: 1,
+      text: "Сертификат НПК ЕАРПП РО-Новосибирск 2021",
+      image: Sertifikat_NPK_EARPP_RO_Nov_21,
     },
     {
-        id: 4,
-        text: "Удостоверение НИПКиПРО 2024",
-        image: Udostoverenie_NIPKiPRO_2024,
-    },
-    {
-        id: 5,
-        text: "Удостоверение ГЦОЗ Магистр 2023",
-        image: Udostoverenie_GTsOZ_Magistr_2023,
-    },
-    {
-        id: 6,
-        text: "Сертификат НПК ЕАРПП РО-Санкт-Петербург 2023",
-        image: Sertifikat_NPK_EARPP_RO_23,
-    },
-    {
-        id: 7,
-        text: "Сертификат НПК ЕАРПП РО-Екатеринбург 2023",
-        image: Sertifikat_NPK_EARPP_RO_Eka,
-    },
-    {
-        id: 8,
+      id: 2,
         text: "Сертификат НПК ЕАРПП РО-Новосибирск 2022",
         image: Sertifikat_NPK_EARPP_RO_22,
     },
-    
+    {
+      id: 3,
+      text: "Удостоверение ГЦОЗ Магистр 2023",
+      image: Udostoverenie_GTsOZ_Magistr_2023,
+    },
+    {
+      id: 4,
+      text: "Сертификат НПК ЕАРПП РО-Санкт-Петербург 2023",
+      image: Sertifikat_NPK_EARPP_RO_23,
+    },
+    {
+      id: 5,
+      text: "Сертификат НПК ЕАРПП РО-Екатеринбург 2023",
+      image: Sertifikat_NPK_EARPP_RO_Eka,
+    },
+    {
+      id: 6,
+      text: "Удостоверение НИПКиПРО 2024",
+      image: Udostoverenie_NIPKiPRO_2024,
+    },
+    {
+      id: 7,
+      text: "Сертификат НГПУ 2024",
+      image: Sertifikat_NGPU_2024,
+    },
+    {
+      id:8,
+      text: "Сертифкат Зимней Школы",
+      image: XVIISertificat
+    },
     {
         id: 9,
-        text: "Сертификат НПК ЕАРПП РО-Новосибирск 2021",
-        image: Sertifikat_NPK_EARPP_RO_Nov_21,
+        text: "Диплом о базовом психологическом образовании",
+        image: Diplom_NGTU_2022_1_srt,
     },
     {
         id: 10,
-        text: "Удостоверение ИСПиП 2021",
-        image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
+        text: "Диплом о психоаналитической переподготовке",
+        image: Diplom_MIP_2024,
     },
     {
         id: 11,
-        text: "Сертифкат Зимней Школы",
-        image:XVIISertificat
-    }
+        text: "Международный сертификат МШГА, COIRAG, EGATIN, EAP",
+        image: Mezhdunarodny_Sertifikat,
+    },
+  
 ]
 export const ExtraEdu =() => {
      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [img,setImage] = useAtom(ImgAtom)
+    const [img,setImage] = useAtom(imgAtom)
 
 
     return(
@@ -87,7 +105,7 @@ export const ExtraEdu =() => {
         }}
         navigation={true}
         modules={[Pagination, Autoplay, Navigation]}>
-        {ExtraEduSet.map((one) => (
+        {eduSet.map((one) => (
                 <SwiperSlide key={one.id} style={{ width: 'auto', maxHeight:"210px" }}> 
                 <Image
                 onClick={() => setImage(one.id)}

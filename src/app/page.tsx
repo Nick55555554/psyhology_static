@@ -1,16 +1,4 @@
 'use client';
-import Diplom_MIP_2024 from '../../public/Diplom_MIP_2024/Diplom_MIP_2024_page-0001.jpg'
-import Diplom_NGTU_2022_1_srt from "../../public/Diplom_NGTU_2022_1_str/Diplom_NGTU_2022_1_str_page-0001.jpg"
-import Mezhdunarodny_Sertifikat from '../../public/Mezhdunarodny_Sertifikat_MShGA_160ch_2023/Mezhdunarodny_Sertifikat_MShGA_160ch_2023_page-0001.jpg'
-import Sertifikat_NGPU_2024 from '../../public/Sertifikat_NGPU_2024/Sertifikat_NGPU_2024_page-0001.jpg'
-import Sertifikat_NPK_EARPP_RO_Eka from '../../public/Sertifikat_NPK_EARPP_RO-Ekaterinburg_2023/Sertifikat_NPK_EARPP_RO-Ekaterinburg_2023_page-0001.jpg'
-import Sertifikat_NPK_EARPP_RO_Nov_21 from '../../public/Sertifikat_NPK_EARPP_RO-Novosibirsk_2021/Sertifikat_NPK_EARPP_RO-Novosibirsk_2021_page-0001.jpg'
-import Sertifikat_NPK_EARPP_RO_22 from '../../public/Sertifikat_NPK_EARPP_RO-Novosibirsk_2022/Sertifikat_NPK_EARPP_RO-Novosibirsk_2022_page-0001.jpg'
-import Sertifikat_NPK_EARPP_RO_23 from '../../public/Sertifikat_NPK_EARPP_RO-Sankt-Peterburg_2023/Sertifikat_NPK_EARPP_RO-Sankt-Peterburg_2023_page-0001.jpg'
-import Udostoverenie_GTsOZ_Magistr_2023 from '../../public/Udostoverenie_GTsOZ_Magistr_2023/Udostoverenie_GTsOZ_Magistr_2023_page-0001.jpg'
-import Udostoverenie_ISPiP_Yan_Fyodorov_2021 from '../../public/Udostoverenie_ISPiP_Yan_Fyodorov_2021/Udostoverenie_ISPiP_Yan_Fyodorov_2021_page-0001.jpg'
-import Udostoverenie_NIPKiPRO_2024 from '../../public/Udostoverenie_NIPKiPRO_2024/Udostoverenie_NIPKiPRO_2024_page-0001.jpg'
-import XVIISertificat from "../../public/Сертификат XVII ЗШ_page-0001.jpg"
 import tg from "../../public/tg.png"
 import ws from "../../public/wp.png"
 import em from "../../public/email.png"
@@ -22,8 +10,8 @@ import individual from "../../public/fornat/individual.png"
 import title_image from "../../public/title-image.jpg";
 import "./styles.scss";
 import { useEffect, useRef, useState } from "react";
-import { ImgAtom, MainEdu } from "./components/MainEdu";
-import { ExtraEdu } from "./components/ExtraEdu";
+import { imgAtom, MainEdu } from "./components/MainEdu";
+import { eduSet, ExtraEdu } from "./components/ExtraEdu";
 import Image from "next/image";
 import { useAtom } from "jotai";
 import Text from './components/text';
@@ -37,75 +25,14 @@ const problems = [
   {id: 5, text: "Нестабильная самооценка"},
 ]
 
-const allEduSet = [
-  {
-        id: 0,
-        text: "Диплом о базовом психологическом образовании",
-        image: Diplom_NGTU_2022_1_srt,
-  },
-  {
-        id: 1,
-        text: "Диплом о психоаналитической переподготовке",
-        image: Diplom_MIP_2024,
-  },
-  {
-        id: 2,
-        text: "Международный сертификат МШГА, COIRAG, EGATIN, EAP",
-        image: Mezhdunarodny_Sertifikat,
-  },
-  {
-    id: 3,
-    text: "Удостоверение ИСПиП 2021",
-    image: Udostoverenie_ISPiP_Yan_Fyodorov_2021,
-  },    
-  {
-      id: 4,
-      text: "Сертификат НПК ЕАРПП РО-Новосибирск 2021",
-      image: Sertifikat_NPK_EARPP_RO_Nov_21,
-  },
-  {
-    id: 5,
-      text: "Сертификат НПК ЕАРПП РО-Новосибирск 2022",
-      image: Sertifikat_NPK_EARPP_RO_22,
-  },
-  {
-    id: 6,
-    text: "Удостоверение ГЦОЗ Магистр 2023",
-    image: Udostoverenie_GTsOZ_Magistr_2023,
-  },
-  {
-    id: 7,
-    text: "Удостоверение НИПКиПРО 2024",
-    image: Udostoverenie_NIPKiPRO_2024,
-  },
-  {
-    id: 8,
-    text: "Сертификат НПК ЕАРПП РО-Санкт-Петербург 2023",
-    image: Sertifikat_NPK_EARPP_RO_23,
-  },
-  {
-    id: 9,
-    text: "Сертификат НПК ЕАРПП РО-Екатеринбург 2023",
-    image: Sertifikat_NPK_EARPP_RO_Eka,
-  },
-  {
-    id: 10,
-    text: "Сертификат НГПУ 2024",
-    image: Sertifikat_NGPU_2024,
-  },
-  {
-    id: 11,
-    text: "Сертифкат Зимней Школы",
-    image:XVIISertificat
-  }   
-]
+
 
 export default function Home() {
   const [popupVisible, setPopupVisible] = useState({
     tele: false,
   });
   const [layout, setLayout] = useState<boolean>(false);
-  const [img, setImage] = useAtom(ImgAtom);
+  const [img, setImage] = useAtom(imgAtom)
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const teleref = useRef<HTMLSpanElement>(null);
   const [isVisible2, setIsVisible2] = useState<boolean>(false);
@@ -166,9 +93,7 @@ export default function Home() {
       const handleClickOutside = (e: MouseEvent) => {
         if (copiedRef.current && visRef.current && !copiedRef.current.contains(e.target as Node) && !visRef.current.contains(e.target as Node)) {
           copiedRef.current.classList.remove('vis')
-          console.log('sdgsdf')
         }
-        console.log('dfdf')
       };
 
       document.addEventListener('click', handleClickOutside);
@@ -177,6 +102,7 @@ export default function Home() {
 
 
   useEffect(() => {
+    console.log(img)
     if (img !== undefined && img < 10000) {
       setLayout(true);
     } else {
@@ -185,6 +111,7 @@ export default function Home() {
     console.log(img)
   },[img])
 
+  
 
   return (
     <div className="page">
@@ -192,8 +119,6 @@ export default function Home() {
       ref={visRef}
       onClick={() => {
         copiedRef.current?.classList.add('vis')
-        if(copiedRef.current)
-        console.log(copiedRef.current.classList)
       }
       }
       >
@@ -255,20 +180,33 @@ export default function Home() {
         </div>
           <div className="arrow left"
           onClick={() => {
-            if(img > 0) {
+            if(img >= 0) {
+              if(img == 0) {
+                setImage(8)
+                return
+              }
+              if(img == 9) {
+                  setImage(11)
+                  return
+
+              }
               setImage(img-1)
-            } else if (img == 0){
-              setImage(11)
               }
             }
           }
           >&#10094;</div>
           <div className="arrow right"
           onClick={() =>  {
-            if(img< 11) {
+            if(img < 8){
               setImage(img+1)
-            } else if (img == 11){
-              setImage(0)
+              } else if (img == 8){
+                setImage(0)
+                return
+            }else if (img < 11){
+              setImage(img+1)
+              return
+              } else if(img == 11){
+                  setImage(9)
               }
             }
           }
@@ -276,11 +214,11 @@ export default function Home() {
           </div>
         </>
       }
-      {img !== undefined &&  img < allEduSet.length  &&(
+      {img !== undefined && img < 12 && (
         <>
           <Image
-          src={allEduSet[img].image}
-          alt={allEduSet[img].text}
+          src={eduSet[img].image}
+          alt={eduSet[img].text}
           className='popUpImage'
           />
         </>
