@@ -93,7 +93,11 @@ export default function Home() {
       const handleClickOutside = (e: MouseEvent) => {
         if (copiedRef.current && visRef.current && !copiedRef.current.contains(e.target as Node) && !visRef.current.contains(e.target as Node)) {
           copiedRef.current.classList.remove('vis')
+          setTimeout(()=> {
+            copiedRef.current?.classList.remove('z98')
+          }, 1000)
         }
+
       };
 
       document.addEventListener('click', handleClickOutside);
@@ -119,6 +123,7 @@ export default function Home() {
       ref={visRef}
       onClick={() => {
         copiedRef.current?.classList.add('vis')
+        copiedRef.current?.classList.add('z98')
       }
       }
       >
@@ -247,11 +252,11 @@ export default function Home() {
                 <motion.li
                 className='list-item'
                 style={{
-                  background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(128, 128, 128, 0.4) 100%)',
+                  background: 'linear-gradient(270deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(128, 128, 128, 0.4) 100%)',
                   backgroundSize: '400% 400%',
                   margin: "5px",
                   textAlign: "left",
-                  padding: "10px"
+                  padding: "10px 10px 10px 15px"
                 }}
                 key={problem.id}
                 initial={{opacity: 0}}

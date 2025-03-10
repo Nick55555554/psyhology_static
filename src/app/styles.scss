@@ -115,7 +115,7 @@ header{
 
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-    color: #20B2AA; 
+    color: #20B2AA !important; 
 }
 .slImg{
     height: 220px;
@@ -191,7 +191,7 @@ header{
     margin: 50px 10% 0 10%;
     text-align: center;
     text-justify: inter-word;
-    padding: 20px 50px;
+    padding: 40px 50px;
     animation: fadeIn 2s ease-out forwards;
     hyphens: auto;
     font-size: clamp(rem(16), rem(16) + 1vw, rem(36));
@@ -205,6 +205,7 @@ footer{
     justify-content: start;
     height: 120px;
     border-top: 10px solid #20B2AA;
+    background-color: white;
     color: black;
     font-size: clamp(1rem,0.8rem + 2vw, 1.6rem);
     padding: 50px 0 50px 10%;
@@ -228,7 +229,7 @@ footer{
     box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.4);
 }
 footer, .border, .w100{
-    background-color:rgba(255, 255, 255, 0.5)
+    background-color:rgba(255, 255, 255)
 }
 
 .visible_box{
@@ -246,6 +247,9 @@ footer, .border, .w100{
 .list-item{
     position: relative;
     text-align: start;
+    border-radius: 15px;
+    padding-left: 30px;
+
 }
 .list-item::before {
     content: ''; 
@@ -256,6 +260,7 @@ footer, .border, .w100{
     height: 0; 
     border-right: 15px solid transparent; /* Левый треугольник */
     border-top: 15px solid #20B2AA;
+    border-left: 1px solid transparent;
 }
 .edu_active {
     transform: translate(0,10px);
@@ -477,7 +482,7 @@ footer, .border, .w100{
     flex-direction: column;
     justify-content: center;
     gap:5%;
-    z-index: 98;
+    z-index: -100;
     padding-left: 1%;
     text-align: start;
     font-size: clamp(rem(12),0.5rem + 1vw, rem(24));
@@ -488,6 +493,9 @@ footer, .border, .w100{
 
 .vis{
     opacity: 1;
+}
+.z98{
+    z-index: 98;
 }
 .copied a{
     transform: skew(-50deg);
@@ -1060,6 +1068,8 @@ footer, .border, .w100{
         padding: 5px;
     }
     .list-item{
+        border-radius: 10px;
+        width: 250px;
         height: auto;
     }
     .im2{

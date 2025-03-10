@@ -89,6 +89,8 @@ export const ExtraEdu =() => {
     const [img,setImage] = useAtom(imgAtom)
 
 
+    const filteredEduSet = eduSet.slice(0, -3);
+
     return(
         <Swiper
         slidesPerView={'auto'}
@@ -105,7 +107,7 @@ export const ExtraEdu =() => {
         }}
         navigation={true}
         modules={[Pagination, Autoplay, Navigation]}>
-        {eduSet.map((one) => (
+        {filteredEduSet.map((one) => (
                 <SwiperSlide key={one.id} style={{ width: 'auto', maxHeight:"210px" }}> 
                 <Image
                 onClick={() => setImage(one.id)}
