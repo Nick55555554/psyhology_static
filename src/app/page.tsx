@@ -106,13 +106,11 @@ export default function Home() {
 
 
   useEffect(() => {
-    console.log(img)
     if (img !== undefined && img < 10000) {
       setLayout(true);
     } else {
       setLayout(false)
     }
-    console.log(img)
   },[img])
 
   
@@ -187,10 +185,10 @@ export default function Home() {
           onClick={() => {
             if(img >= 0) {
               if(img == 0) {
-                setImage(8)
+                setImage(9)
                 return
               }
-              if(img == 9) {
+              if(img == 10) {
                   setImage(11)
                   return
 
@@ -202,16 +200,16 @@ export default function Home() {
           >&#10094;</div>
           <div className="arrow right"
           onClick={() =>  {
-            if(img < 8){
+            if(img < 9){
               setImage(img+1)
-              } else if (img == 8){
+              } else if (img == 9){
                 setImage(0)
                 return
-            }else if (img < 11){
+            }else if (img < 12){
               setImage(img+1)
               return
-              } else if(img == 11){
-                  setImage(9)
+              } else if(img == 12){
+                  setImage(10)
               }
             }
           }
@@ -219,7 +217,7 @@ export default function Home() {
           </div>
         </>
       }
-      {img !== undefined && img < 12 && (
+      {img !== undefined && img < 13 && (
         <>
           <Image
           src={eduSet[img].image}
@@ -393,7 +391,8 @@ export default function Home() {
             </ul>
         </div>
           <div className='w100'>
-            Уверен, что источник изменений находится внутри человека. Работа с бессознательным – это совместный труд клиента и терапевта, результатом которого является личностный рост и принципиальное изменение качества жизни.
+            Работа с бессознательным – это совместный труд клиента и терапевта, результатом которого является личностный рост и принципиальное изменение качества жизни.
+            Уверен, что источник изменений находится внутри человека.
           </div>
       </main>
       <footer>

@@ -17,7 +17,6 @@ export const MainEdu =({className}:
     const [mainEdu, setVisibleMainEdu] = useState<number | null>(null)
     const handleMainEdu = (id: number) => {
         setVisibleMainEdu((prev:number | null) => (prev === id ? null : id));
-        console.log(id)
     };
 
     const maineduSet = eduSet.slice(-3);

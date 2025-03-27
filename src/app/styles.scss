@@ -399,8 +399,8 @@ footer, .border, .w100{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    height: 70%;
     width: auto;
-    height: 90%;
     box-shadow: 5px 4px 3px rgba(0,0,0,0.3);
 }
 .popUp{
@@ -752,6 +752,10 @@ footer, .border, .w100{
     footer{
         gap:10%;
     }
+    .popUpImage{
+        height: 70%;
+        width: auto;
+    }
 }
 
 @media(max-width: 1050px){
@@ -1013,6 +1017,7 @@ footer, .border, .w100{
         background-size: cover;
     }
 
+
 }
 @media(max-width: 568px){
     .logo, .name{
@@ -1076,7 +1081,8 @@ footer, .border, .w100{
         width:80%;
     }
     .w100{
-        padding: 20px;
+        padding: 30px;
+        text-align: left;
     }
     .telcircle{
         width: 20%;

@@ -10,6 +10,8 @@ import Diplom_MIP_2024 from '../../../public/Diplom_MIP_2024/Diplom_MIP_2024_pag
 import Diplom_NGTU_2022_1_srt from "../../../public/Diplom_NGTU_2022_1_str/Diplom_NGTU_2022_1_str_page-0001.jpg"
 import Mezhdunarodny_Sertifikat from '../../../public/Mezhdunarodny_Sertifikat_MShGA_160ch_2023/Mezhdunarodny_Sertifikat_MShGA_160ch_2023_page-0001.jpg'
 import XVIISertificat from "../../../public/Сертификат XVII ЗШ_page-0001.jpg"
+import XIISERTIFICAT from '../../../public/Сертификат_НПК_ЕАРПП_РО_Новосибирск_2025_page-0001.jpg'
+
 import "../styles.scss"
 import Image from 'next/image';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
@@ -68,20 +70,26 @@ export const eduSet = [
       image: XVIISertificat
     },
     {
-        id: 9,
+      id:9, 
+      text: "Сертификат участника V межрегиональной научно-практической конференции",
+      image: XIISERTIFICAT
+    },
+    {
+        id: 10,
         text: "Диплом о базовом психологическом образовании",
         image: Diplom_NGTU_2022_1_srt,
     },
     {
-        id: 10,
+        id: 11,
         text: "Диплом о психоаналитической переподготовке",
         image: Diplom_MIP_2024,
     },
     {
-        id: 11,
+        id: 12,
         text: "Международный сертификат МШГА, COIRAG, EGATIN, EAP",
         image: Mezhdunarodny_Sertifikat,
     },
+
   
 ]
 export const ExtraEdu =() => {
