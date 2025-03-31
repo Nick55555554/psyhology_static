@@ -987,7 +987,9 @@ footer, .border, .w100{
         padding: 0 20px;
         height: 170px;
         justify-content: center;
+        align-items: start;
         flex-direction: column;
+        text-align: left;
         gap: 20px;
     }
     .zapis{
@@ -1016,7 +1018,9 @@ footer, .border, .w100{
         background-attachment: fixed; 
         background-size: cover;
     }
-
+    .footer__item{
+        margin-left: 20%;
+    }
 
 }
 @media(max-width: 568px){
@@ -1096,6 +1100,9 @@ footer, .border, .w100{
         line-height: 100px;
         height: 100px;
     }
+    .footer__item{
+        margin-left: 15%;
+    }
 }
 @media(max-width: 414px){
     header{
@@ -1150,6 +1157,9 @@ footer, .border, .w100{
         bottom: 15%;
         right:7%;
         width: 55%;
+    }
+    .footer__item{
+        margin-left: 0;
     }
 }
 @media(max-width: 374px){

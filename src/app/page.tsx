@@ -396,7 +396,17 @@ export default function Home() {
           </div>
       </main>
       <footer>
-            <div>
+          <div className="footer__item">
+              <Image
+              src={tg}
+              alt='ТГ'
+              className='footerImage'
+              />
+              <span>                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer" className='pl-3 cursor-pointer'>
+                Мой телеграм-канал
+              </a></span>
+            </div>
+            <div className="footer__item">
             {popupVisible.tele ? (
                 <div className="copy_popup visible">Телефон скопирован</div>
               ) :
@@ -413,16 +423,7 @@ export default function Home() {
                 +7 999 466-07-17
                 </span>
               </div>
-              <div>
-                  <Image
-                  src={tg}
-                  alt='ТГ'
-                  className='footerImage'
-                  />
-                  <span>                  <a href="https://t.me/ncuxo_analiz" target="_blank" rel="noopener noreferrer" className='pl-3 cursor-pointer'>
-                    Мой телеграм-канал
-                  </a></span>
-                </div>
+              
       </footer>
     </div>
   );
