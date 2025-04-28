@@ -185,11 +185,11 @@ export default function Home() {
           onClick={() => {
             if(img >= 0) {
               if(img == 0) {
-                setImage(9)
+                setImage(11)
                 return
               }
-              if(img == 10) {
-                  setImage(11)
+              if(img == 12) {
+                  setImage(13)
                   return
 
               }
@@ -202,14 +202,14 @@ export default function Home() {
           onClick={() =>  {
             if(img < 9){
               setImage(img+1)
-              } else if (img == 9){
+              } else if (img == 11){
                 setImage(0)
                 return
-            }else if (img < 12){
+            }else if (img < 14){
               setImage(img+1)
               return
-              } else if(img == 12){
-                  setImage(10)
+              } else if(img == 14){
+                  setImage(12)
               }
             }
           }
@@ -217,7 +217,7 @@ export default function Home() {
           </div>
         </>
       }
-      {img !== undefined && img < 13 && (
+      {img !== undefined && img < 15 && (
         <>
           <Image
           src={eduSet[img].image}

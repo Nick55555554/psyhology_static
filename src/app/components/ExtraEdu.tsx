@@ -11,7 +11,8 @@ import Diplom_NGTU_2022_1_srt from "../../../public/Diplom_NGTU_2022_1_str/Diplo
 import Mezhdunarodny_Sertifikat from '../../../public/Mezhdunarodny_Sertifikat_MShGA_160ch_2023/Mezhdunarodny_Sertifikat_MShGA_160ch_2023_page-0001.jpg'
 import XVIISertificat from "../../../public/Сертификат XVII ЗШ_page-0001.jpg"
 import XIISERTIFICAT from '../../../public/Сертификат_НПК_ЕАРПП_РО_Новосибирск_2025_page-0001.jpg'
-
+import sertificatXIII from "../../../public/13/13_page-0001.jpg"
+import setrificatXIV from "../../../public/14/14_page-0001.jpg"
 import "../styles.scss"
 import Image from 'next/image';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
@@ -74,21 +75,31 @@ export const eduSet = [
       text: "Сертификат участника V межрегиональной научно-практической конференции",
       image: XIISERTIFICAT
     },
+    {     id: 10,
+          text: "Сертификат за участие на XI Всероссийской научно-практической конференции с международным участием",
+          image: sertificatXIII,
+    },
     {
-        id: 10,
+          id: 11,
+          text: "Сертификат участия во II Уральской международной конференции",
+          image: setrificatXIV,
+    },
+    {
+        id: 12,
         text: "Диплом о базовом психологическом образовании",
         image: Diplom_NGTU_2022_1_srt,
     },
     {
-        id: 11,
+        id: 13,
         text: "Диплом о психоаналитической переподготовке",
         image: Diplom_MIP_2024,
     },
     {
-        id: 12,
+        id: 14,
         text: "Международный сертификат МШГА, COIRAG, EGATIN, EAP",
         image: Mezhdunarodny_Sertifikat,
     },
+    
 
   
 ]
