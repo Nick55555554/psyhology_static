@@ -1,61 +1,61 @@
 import { useEffect, useReducer, useRef } from "react";
-import "../styles.scss"
+import "../styles.scss";
 interface State {
     isVisible: boolean;
 }
-type Action = 
-    | { type: 'SET_VISIBLE' };
+type Action = { type: "SET_VISIBLE" };
 
 const initialState = {
-        isVisible: false,
-    };
+    isVisible: false,
+};
 
 const reducer = (state: State, action: Action) => {
-    switch(action.type){
+    switch (action.type) {
         case "SET_VISIBLE":
-            return {...state, isVisible: true};
+            return { ...state, isVisible: true };
         default:
             return state;
     }
-}
+};
 export const ScrollCheck = ({
     children,
-    className
-}:{
-    children: React.ReactNode,
-    className?: string
+    className,
+}: {
+    children: React.ReactNode;
+    className?: string;
 }) => {
     const boxRef = useRef<HTMLDivElement | null>(null);
     const [state, dispatch] = useReducer(reducer, initialState);
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    dispatch({ type: 'SET_VISIBLE' });
+                    dispatch({ type: "SET_VISIBLE" });
                     if (boxRef.current) {
-                        observer.unobserve(boxRef.current); 
+                        observer.unobserve(boxRef.current);
                     }
                 }
             });
         });
 
-        const current = boxRef.current
+        const current = boxRef.current;
 
-        if(current) {
-            observer.observe(current)
+        if (current) {
+            observer.observe(current);
         }
-
 
         return () => {
             if (current) {
-                observer.unobserve(current)
+                observer.unobserve(current);
             }
         };
     }, []);
-    return(
-        <div className={`border ${ state.isVisible ? "visible_box" : "" } ${className}`}
-        ref={boxRef}>
+    return (
+        <div
+            className={`border ${state.isVisible ? "visible_box" : ""} ${className}`}
+            ref={boxRef}
+        >
             {children}
         </div>
-    )
-}
+    );
+};

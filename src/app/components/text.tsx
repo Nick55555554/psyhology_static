@@ -1,20 +1,26 @@
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion"; // Убедитесь, что вы импортируете из правильного пакета
+import { motion } from "framer-motion";
 
-export default function Text({ text, className, place }: { text: string, className?: string, place: number }) {
+export default function Text({
+    text,
+    className,
+    place,
+}: {
+    text: string;
+    className?: string;
+    place: number;
+}) {
     const el = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        // Здесь можно добавить логику, если нужно
-                    }, 1000 * place);
+                    setTimeout(() => { }, 1000 * place);
                     observer.disconnect();
                 }
             },
-            { threshold: 1 }
+            { threshold: 1 },
         );
 
         const currentEl = el.current;
@@ -29,8 +35,7 @@ export default function Text({ text, className, place }: { text: string, classNa
         };
     }, [place]);
 
-    // Разбиваем текст на строки
-    const lines = text.split('\n');
+    const lines = text.split("\n");
 
     return (
         <div className={`${className} text`}>
@@ -41,14 +46,12 @@ export default function Text({ text, className, place }: { text: string, classNa
                     opacity: 1,
                     transition: {
                         default: { type: "spring" },
-                        opacity: { ease: "linear", duration: 2 }
-                    }
+                        opacity: { ease: "linear", duration: 2 },
+                    },
                 }}
             >
                 {lines.map((line, index) => (
-                    <div key={index}>
-                        {line}
-                    </div>
+                    <div key={index}>{line}</div>
                 ))}
             </motion.div>
         </div>

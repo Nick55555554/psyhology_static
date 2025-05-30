@@ -3,25 +3,23 @@ import { Wix_Madefor_Display } from "next/font/google";
 import "./globals.scss";
 
 const wix = Wix_Madefor_Display({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
+    weight: "400",
+    subsets: ["latin"],
+    display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Юрий Грачёв",
+    title: "Юрий Грачёв",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" className={wix.className}>
-      <body>
-        {children}
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en" className={wix.className}>
+            <body>{children}</body>
+        </html>
+    );
 }

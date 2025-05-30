@@ -1,61 +1,69 @@
-@use 'sass:math';
+@use "sass:math";
 @use "tailwindcss" as *;
-
 
 *,
 *::before,
-*::after{
-  box-sizing: border-box;
-  margin: 0;
+*::after {
+    box-sizing: border-box;
+    margin: 0;
 }
-:where(ul, ol):where([class]){
-  padding-left: 0;
+:where(ul, ol):where([class]) {
+    padding-left: 0;
 }
-:where(ul[class]){
-  list-style: none;
+:where(ul[class]) {
+    list-style: none;
 }
-img{
-  display: block;
-  max-width: 100%;
+img {
+    display: block;
+    max-width: 100%;
 }
 
-input, 
+input,
 textarea,
 select,
-button{
-  font:inherit;
+button {
+    font: inherit;
 }
-html, body {
-  height: 100%;
-  margin: 0; 
-  background-image: url('../../public/fon.jpg');
-  background-repeat: repeat; 
-  background-attachment: fixed; 
-  // background-size: cover;
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background-image: url("../../public/fon.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    // background-size: cover;
 }
-html{
-  scroll-behavior: smooth;
+html {
+    scroll-behavior: smooth;
 }
-body{
-  font-style: normal;
-  min-height: 100%;
-  line-height: 1.5;
+body {
+    font-style: normal;
+    min-height: 100%;
+    line-height: 1.5;
 }
-h1, h2, h3, h4, h5, h6, p, div, li, span {
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+li,
+span {
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
-@media(prefers-reduced-motion:reduce){
-  *{
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
-
 
 @mixin fluid-text($max: 48, $min: 16) {
     $maxViewportWidth: 1400;
@@ -70,72 +78,84 @@ h1, h2, h3, h4, h5, h6, p, div, li, span {
     $yAxisIntersection: -$minWidth * $slope + $minSize;
 
     font-size: clamp(
-      #{$minSize * 1rem},
-      #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
-      #{$maxSize * 1rem}
+        #{$minSize * 1rem},
+        #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+        #{$maxSize * 1rem}
     );
 }
 
-h1 { @include fluid-text(50, 30) }
-h2 { @include fluid-text(40, 26) }
-h3 { @include fluid-text(36, 24) }
-h4 { @include fluid-text(32, 22) }
-h5 { @include fluid-text(26, 20) }
-h6 { @include fluid-text(20, 18) }
-body { @include fluid-text(18, 16) }
+h1 {
+    @include fluid-text(50, 30);
+}
+h2 {
+    @include fluid-text(40, 26);
+}
+h3 {
+    @include fluid-text(36, 24);
+}
+h4 {
+    @include fluid-text(32, 22);
+}
+h5 {
+    @include fluid-text(26, 20);
+}
+h6 {
+    @include fluid-text(20, 18);
+}
+body {
+    @include fluid-text(18, 16);
+}
 
 /* Стиль по умолчанию для h1 и h2 */
 h1 {
-  font-size: 2.5em; 
+    font-size: 2.5em;
 }
 
 h2 {
-  font-size: 2em; 
+    font-size: 2em;
 }
 
 @media (max-width: 768px) {
-  h1 {
-      font-size: 1.8em; 
-  }
+    h1 {
+        font-size: 1.8em;
+    }
 
-  h2 {
-      font-size: 1.5em;
-  }
+    h2 {
+        font-size: 1.5em;
+    }
 }
 @media (max-width: 480px) {
-  h1 {
-      font-size: 1.5em;
-  }
+    h1 {
+        font-size: 1.5em;
+    }
 
-  h2 {
-      font-size: 1.3em; 
-  }
+    h2 {
+        font-size: 1.3em;
+    }
 }
 
 ::-webkit-scrollbar {
-  width: 10px; 
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px; 
+    background: #f1f1f1;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #20B2AA;
-  border-radius: 5px;
+    background: #20b2aa;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(0, 0, 0);
 }
 
-
-
 @function rem($pixel) {
-  @if math.is-unitless($pixel) {
-    @return math.div($pixel, 16) * 1rem; 
-  } @else {
-    @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.'
-  }
-};
+    @if math.is-unitless($pixel) {
+        @return math.div($pixel, 16) * 1rem;
+    } @else {
+        @error 'Не используйте единицы измерения при работе с функцией rem()! Передавайте аргументом только числа.';
+    }
+}
